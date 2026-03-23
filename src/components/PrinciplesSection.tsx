@@ -8,7 +8,7 @@ export function PrinciplesSection() {
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-hiveDark mb-8">
           Lab Ethos and Principles
         </h2>
-        <div className="relative w-full max-w-2xl mx-auto">
+        <div className="relative w-full max-w-3xl mx-auto">
           <Image
             src="/img/principles.jpg"
             alt="HIVE CAI Lab principles: Technology, Humans, Impact, and Lab values"

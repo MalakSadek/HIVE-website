@@ -99,30 +99,34 @@ const collaborators: Person[] = [
 ];
 
 const collaboratorInstitutions = [
-  { src: "/img/cfi.png", alt: "Leverhulme Centre for the Future of Intelligence" },
-  { src: "/img/imperial.png", alt: "Imperial College London" },
-  { src: "/img/nokia.png", alt: "Nokia Bell Labs" },
+  { src: "/img/cfi.png", alt: "Leverhulme Centre for the Future of Intelligence", url: "https://www.lcfi.ac.uk/" },
+  { src: "/img/imperial.png", alt: "Imperial College London", url: "https://www.imperial.ac.uk/" },
+  { src: "/img/nokia.png", alt: "Nokia Bell Labs", url: "https://www.nokia.com/bell-labs/" },
   {
     src: "/img/st-andrews.png",
     alt: "University of St Andrews",
     sizeClass: "w-60 md:w-76 lg:w-84 h-20 md:h-24 lg:h-28",
+    url: "https://www.st-andrews.ac.uk/",
   },
   {
     src: "/img/edinburgh.png",
     alt: "The University of Edinburgh",
     sizeClass: "w-60 md:w-76 lg:w-84 h-20 md:h-24 lg:h-28",
+    url: "https://www.ed.ac.uk/",
   },
   {
     src: "/img/rm.jpg",
     alt: "The Royal Marsden NHS Foundation Trust",
     sizeClass: "w-60 md:w-76 lg:w-84 h-20 md:h-24 lg:h-28",
+    url: "https://www.royalmarsden.nhs.uk/",
   },
   {
     src: "/img/rc.jpg",
     alt: "Research Center Trustworthy Data Science and Security",
     sizeClass: "w-60 md:w-76 lg:w-84 h-20 md:h-24 lg:h-28",
+    url: "https://rc-trust.ai/",
   },
-  { src: "/img/at.png", alt: "Alan Turing Institute" },
+  { src: "/img/at.png", alt: "Alan Turing Institute", url: "https://www.turing.ac.uk/" },
 ];
 
 export function TeamSection() {
@@ -273,9 +277,13 @@ export function TeamSection() {
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
           {collaboratorInstitutions.map((institution) => (
-            <div
+            <a
               key={institution.src}
-              className={`relative ${institution.sizeClass ?? "h-12 md:h-14 lg:h-16 w-44 md:w-52"}`}
+              href={institution.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`relative block ${institution.sizeClass ?? "h-12 md:h-14 lg:h-16 w-44 md:w-52"} hover:opacity-80 transition-opacity`}
+              aria-label={institution.alt}
             >
               <Image
                 src={institution.src}
@@ -284,7 +292,7 @@ export function TeamSection() {
                 sizes="(max-width: 768px) 176px, (max-width: 1024px) 208px, 208px"
                 className="object-contain"
               />
-            </div>
+            </a>
           ))}
         </div>
 
