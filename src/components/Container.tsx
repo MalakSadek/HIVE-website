@@ -1,5 +1,3 @@
-import React from "react";
-
 interface ContainerProps {
   children: React.ReactNode;
   className?: string;
@@ -8,7 +6,7 @@ interface ContainerProps {
 export function Container(props: Readonly<ContainerProps>) {
   return (
     <div
-      className={`container p-8 mx-auto xl:px-0 ${
+      className={`max-w-6xl mx-auto px-6 md:px-8 lg:px-10 ${
         props.className ? props.className : ""
       }`}>
       {props.children}

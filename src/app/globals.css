@@ -2,12 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
-  html,
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply dark:bg-trueGray-900;
+    @apply bg-white text-hiveDark;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, system-ui,
+      -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+}
+
+@layer components {
+  .hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .hexagon > span {
+    z-index: 1;
+  }
+
+  .dashed-vertical {
+    border-left-width: 3px;
+    border-left-style: dashed;
+    border-color: #000;
+  }
+
+  .dashed-vertical-light {
+    border-left-width: 3px;
+    border-left-style: dashed;
+    border-color: #cccccc;
   }
 }
 
