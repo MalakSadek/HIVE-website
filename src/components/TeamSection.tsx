@@ -67,6 +67,12 @@ const collaborators: Person[] = [
     url: "https://profiles.imperial.ac.uk/c.mougenot",
   },
   {
+    name: "Prof. Rafael A. Calvo",
+    role: "Professor in Design Engineering, Imperial College London",
+    imageSrc: "/img/rafa.jpg",
+    url: "https://www.linkedin.com/in/rafael-a-calvo/",
+  },
+  {
     name: "Dr. Dorian Peters",
     role: "Assistant Professor in Ethical Design, Leverhulme Centre for the Future of Intelligence",
     imageSrc: "/img/dorian.png",
@@ -85,6 +91,12 @@ const collaborators: Person[] = [
     url: "https://www.linkedin.com/in/emma-kallina/?originalSubdomain=uk",
   },
   {
+    name: "Dr. Uta Hinrichs",
+    role: "Associate Professor in Data Visualisation, Institute of Language, Cognition and Computation, University of Edinburgh",
+    imageSrc: "/img/Uta.jpg",
+    url: "https://www.research.ed.ac.uk/en/persons/uta-hinrichs/",
+  },
+  {
     name: "Echo Wan",
     role: "Doctoral Student, Imperial College London & Patient Engagement Coordinator for Data Science Projects, Royal Marsden",
     imageSrc: "/img/echo.jpg",
@@ -96,11 +108,17 @@ const collaborators: Person[] = [
     imageSrc: "/img/songbo.jpg",
     url: "https://www.linkedin.com/in/songbohu/",
   },
+  {
+    name: "Dr. Loraine Clarke",
+    role: "Design Researcher & Lecturer, St Andrews University",
+    imageSrc: "/img/loraine.jpg",
+    url: "https://www.st-andrews.ac.uk/computer-science/people/lec24/",
+  },
 ];
 
 const collaboratorInstitutions = [
-  { src: "/img/cfi.png", alt: "Leverhulme Centre for the Future of Intelligence", url: "https://www.lcfi.ac.uk/" },
   { src: "/img/imperial.png", alt: "Imperial College London", url: "https://www.imperial.ac.uk/" },
+  { src: "/img/cfi.png", alt: "Leverhulme Centre for the Future of Intelligence", url: "https://www.lcfi.ac.uk/" },
   { src: "/img/nokia.png", alt: "Nokia Bell Labs", url: "https://www.nokia.com/bell-labs/" },
   {
     src: "/img/st-andrews.png",
