@@ -435,7 +435,7 @@ export function ResearchPathways() {
                         Smith, F., Sadek, M., Wan, E., Ito, A., & Mougenot, C.
                       </p>
                       <p className="mt-2 text-xs md:text-sm text-gray-700">
-                        Understanding the impact of an AI literacy toolkit on end-users' participation in co-designing AI systems.
+                        Understanding the impact of an AI literacy toolkit on end-users&apos; participation in co-designing AI systems.
                         </p>
                     </a>
 
@@ -460,7 +460,7 @@ export function ResearchPathways() {
                         Smith, F., Sadek, M. & Mougenot, C.
                       </p>
                       <p className="mt-2 text-xs md:text-sm text-gray-700">
-                      Creating a toolkit to be used by AI practitioners when collaborating with users to design AI systems that can improve users' AI literacy and help them participate meaningfully.
+                      Creating a toolkit to be used by AI practitioners when collaborating with users to design AI systems that can improve users&apos; AI literacy and help them participate meaningfully.
                       </p>
                     </a>
 
@@ -569,7 +569,7 @@ export function ResearchPathways() {
                         Sadek, M. & Mougenot, C.
                       </p>
                       <p className="mt-1 text-xs md:text-sm text-gray-700">
-                       An analysis of how demographic factors shape users' perceptions of AI chatbots' value alignment.</p>
+                       An analysis of how demographic factors shape users&apos; perceptions of AI chatbots&apos; value alignment.</p>
                     </div> 
 
                     <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
