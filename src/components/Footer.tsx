@@ -32,10 +32,10 @@ export function Footer() {
           16 Mill Lane,
           Cambridge, CB2 1SB, United Kingdom, Email:{" "}
           <a
-            href="mailto:hive@chia.cam.ac.uk"
+            href="mailto:mfzas2@chia.cam.ac.uk"
             className="underline hover:text-hiveGold"
           >
-            hive@chia.cam.ac.uk
+            Coming Soon!
           </a>
         </p>
 
