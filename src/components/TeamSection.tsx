@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import { Container } from "./Container";
 
 type Person = {
@@ -6,6 +7,15 @@ type Person = {
   role: string;
   imageSrc?: string;
   url?: string;
+};
+
+type Institution = {
+  src: string;
+  alt: string;
+  url: string;
+  sizeClass?: string;
+  imageStyle?: CSSProperties;
+  imageClassName?: string;
 };
 
 const teamMembers: Person[] = [
@@ -91,6 +101,12 @@ const collaborators: Person[] = [
     url: "https://www.linkedin.com/in/emma-kallina/?originalSubdomain=uk",
   },
   {
+    name: "Dr. Willem van der Maden",
+    role: "Postdoctoral Researcher in Human-Centered AI Evaluation & Design, ITU Copenhagen",
+    imageSrc: "/img/willem.jpg",
+    url: "https://www.linkedin.com/in/wlavandermaden/",
+  },
+  {
     name: "Dr. Uta Hinrichs",
     role: "Associate Professor in Data Visualisation, Institute of Language, Cognition and Computation, University of Edinburgh",
     imageSrc: "/img/Uta.jpg",
@@ -116,7 +132,7 @@ const collaborators: Person[] = [
   },
 ];
 
-const collaboratorInstitutions = [
+const collaboratorInstitutions: Institution[] = [
   { src: "/img/imperial.png", alt: "Imperial College London", url: "https://www.imperial.ac.uk/" },
   { src: "/img/cfi.png", alt: "Leverhulme Centre for the Future of Intelligence", url: "https://www.lcfi.ac.uk/" },
   { src: "/img/nokia.png", alt: "Nokia Bell Labs", url: "https://www.nokia.com/bell-labs/" },
@@ -144,6 +160,13 @@ const collaboratorInstitutions = [
     sizeClass: "w-60 md:w-76 lg:w-84 h-20 md:h-24 lg:h-28",
     url: "https://rc-trust.ai/",
   },
+  {
+    src: "/img/delft.png",
+    alt: "Delft University of Technology (TU Delft)",
+    url: "https://www.tudelft.nl/en/",
+    imageClassName: "scale-110 -translate-x-6 -translate-y-4",
+  },
+  { src: "/img/copenhagen.jpg", alt: "IT University of Copenhagen (ITU)", url: "https://en.itu.dk/" },
   { src: "/img/at.png", alt: "Alan Turing Institute", url: "https://www.turing.ac.uk/" },
 ];
 
@@ -308,7 +331,8 @@ export function TeamSection() {
                 alt={institution.alt}
                 fill
                 sizes="(max-width: 768px) 176px, (max-width: 1024px) 208px, 208px"
-                className="object-contain"
+                className={`object-contain ${institution.imageClassName ?? ""}`}
+                style={institution.imageStyle}
               />
             </a>
           ))}

@@ -202,11 +202,11 @@ export function ResearchPathways() {
               </div>
               <div>
                 <h3 className="text-lg md:text-xl font-semibold text-hiveDark">
-                  Living With AI Values
+                  Living With Conversational AI Values
                 </h3>
                 <p className="text-sm md:text-base italic text-gray-700">
                   How people perceive, interpret, experience, and are influenced
-                  by AI value expressions.
+                  by conversational AI value expressions.
                 </p>
               </div>
             </div>
@@ -407,7 +407,7 @@ export function ResearchPathways() {
                     2. Conversational AI Literacy & User Agency
                   </h4>
                   <p className="mt-1 text-xs md:text-sm text-gray-700">
-                  Helping people understand, evaluate, and steer chatbot behaviour.
+                  Helping people understand, evaluate, and steer conversational AI behaviours.
                   </p>
                 </div>
 
@@ -448,6 +448,9 @@ export function ResearchPathways() {
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
                         <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
                           BCS HCI (2023)
+                        </p>
+                        <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
+                          Best Paper Award
                         </p>
                       </div>
                       <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
@@ -509,7 +512,7 @@ export function ResearchPathways() {
                     3. The Impacts of Conversational AI Values on Users
                   </h4>
                   <p className="mt-1 text-xs md:text-sm text-gray-700">
-                  Understanding how diverse users perceive, interact with, and are impacted by the values in AI 
+                  Understanding how diverse users perceive, interact with, and are impacted by the values in conversational AI systems.
                   </p>
                 </div>
 
@@ -574,27 +577,13 @@ export function ResearchPathways() {
                         <p className="text-sm font-semibold text-orange-600">In Progress</p>
                       </div>
                       <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                        Towards a perceieved AI value alignment scale
+                        Towards a perceived AI value alignment scale
                       </p>
                       <p className="mt-2 text-xs md:text-sm italic text-gray-700">
                         Sinha, A.K., van der Maden, W., Axelsson, M., & Sadek, M.
                       </p>
                       <p className="mt-1 text-xs md:text-sm text-gray-700">
                     Developing a standardised scale to quantitatively measure percieved AI value alignment with relevant human values. </p>
-                    </div> 
-
-                    <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold text-orange-600">In Progress</p>
-                      </div>
-                      <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                        Exploring the impacts of LLM alignment with user personality versus values
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Sadek, M. & Desai, S.
-                      </p>
-                      <p className="mt-1 text-xs md:text-sm text-gray-700">
-                    Understanding user perceptions and the impacts of interacting with LLMs that align with their personality versus with their values. </p>
                     </div> 
 
                   </div>
@@ -726,7 +715,7 @@ export function ResearchPathways() {
                       Prompting Strategies for Improving LLM Value-Sensitivity
                     </p>
                     <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                      Sadek, M., Hu, S., Kohout, I., Rahman, H. & Desai, S.
+                      Sadek, M., Hu, S. & Kohout, I.
                     </p>
                     <p className="mt-1 text-xs md:text-sm text-gray-700">
                       Positioning system prompting as a method for democratising value-sensitive LLM design for users and understanding the impacts of different prompting approaches on percieved LLM value alignment.
@@ -777,7 +766,31 @@ export function ResearchPathways() {
                     <p className="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-gray-700">
                       Selected Work
                     </p>
-            
+                  
+                    <a
+                      href="https://dl.acm.org/doi/abs/10.1145/3571884.3597143"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+                    >
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                          CHI (2026)
+                        </p>
+                        <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
+                          Honourable Mention
+                        </p>
+                      </div>
+                      <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+                      KNIT: Computational Boundary Objects for Real-Time Convergence in Interdisciplinary Teams 
+                      </p>
+                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+                        Wan, E., Yin, C., Ito, A., Gao, Z., Jia, J., Taoka, Y., Saito, S., Sadek, M., & Mougenot, C.
+                      </p>
+                      <p className="mt-2 text-xs md:text-sm text-gray-700">
+                      Developing an LLM-enhanced system that transforms AI-generated value proposition statements into boundary objects to help interdisciplinary teams converge during problem solving.
+                      </p>
+                    </a>
 
                   <a
                     href="https://www.sciencedirect.com/science/article/pii/S0142694X23000716"
