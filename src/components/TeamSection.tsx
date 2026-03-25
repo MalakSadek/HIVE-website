@@ -107,6 +107,12 @@ const collaborators: Person[] = [
     url: "https://www.linkedin.com/in/wlavandermaden/",
   },
   {
+    name: "Dr. Minja Axelsson",
+    role: "Postdoctoral Research & Teaching Fellow, University of Cambridge",
+    imageSrc: "/img/minja.jpg",
+    url: "https://www.linkedin.com/in/minjaaxelsson/",
+  },
+  {
     name: "Dr. Uta Hinrichs",
     role: "Associate Professor in Data Visualisation, Institute of Language, Cognition and Computation, University of Edinburgh",
     imageSrc: "/img/Uta.jpg",
