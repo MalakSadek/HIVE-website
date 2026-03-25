@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { label: "Team", href: "#team" },
   { label: "Principles", href: "#principles" },
   { label: "Activities", href: "#activities" },
-  { label: "Join HIVE", href: "#join" },
+  { label: "Join the HIVE", href: "#join" },
 ];
 
 export function Header() {

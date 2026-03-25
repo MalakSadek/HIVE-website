@@ -13,7 +13,7 @@ const activities: Activity[] = [];
 
 const DEFAULT_ACTIVITIES: Activity[] = [
   {
-    text: "**HIVE CAI Lab's** publication with the **Collective Innovation Lab** at Imperial College London 'KNIT: Computational Boundary Objects for Real-Time Convergence in Interdisciplinary Teams ' at CHI 2026 has earned an **Honourable Mention**.",
+    text: "**HIVE CAI Lab's** publication with the **Collective Innovation Lab** at Imperial College London, 'KNIT: Computational Boundary Objects for Real-Time Convergence in Interdisciplinary Teams', at CHI 2026 has earned an **Honourable Mention**.",
     href: "https://programs.sigchi.org/chi/2026/program/content/223274",
   },
   {
@@ -25,7 +25,7 @@ const DEFAULT_ACTIVITIES: Activity[] = [
     href: "https://www.linkedin.com/posts/dorian-peters_ai-and-the-future-of-wellbeing-navigating-share-7425463313771311104-ItVN?utm_source=share&utm_medium=member_desktop&rcm=ACoAACdPwK4BgYoJpjX_VYdfCWS2hzGr4rozTzI",
   },
   {
-    text: "**Dr. Malak Sadek** and **Echo Wan** held an event at [The Cambridge Festival](https://www.festival.cam.ac.uk/) titled ['AI Facilitated Problem Solving'](https://www.festival.cam.ac.uk/events/problem-solving-more-problem-discovery-using-gamified-conversational-ai-support-collaborative) using an LLM facilitator to help members of the general public converge and problem solve together.",
+    text: "**Dr. Malak Sadek** and **Echo Wan** held an event at [The Cambridge Festival](https://www.festival.cam.ac.uk/) titled ['AI Facilitated Problem Solving'](https://www.festival.cam.ac.uk/events/problem-solving-more-problem-discovery-using-gamified-conversational-ai-support-collaborative) using an LLM facilitator to help members of the general public converge and solve problems together.",
     href: "https://www.linkedin.com/posts/malaksadek_yesterday-was-very-a-fulfilling-day-activity-7442605391819132928-NSO5?utm_source=share&utm_medium=member_desktop&rcm=ACoAACdPwK4BgYoJpjX_VYdfCWS2hzGr4rozTzI",
   },
   {

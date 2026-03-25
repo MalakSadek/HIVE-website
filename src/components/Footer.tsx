@@ -27,8 +27,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 text-center text-base">
         <p>
           Human Interactions, Values, and Experiences with Conversational AI
-          (HIVE CAI) Lab, Centre for Human Inspired AI (CHIA) 
-          <br/> 
+          (HIVE CAI) Lab, Centre for Human Inspired AI (CHIA).
+          <br />
           16 Mill Lane,
           Cambridge, CB2 1SB, United Kingdom, Email:{" "}
           <a

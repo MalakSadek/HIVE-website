@@ -295,7 +295,7 @@ export function ResearchPathways() {
                     </a>
 
                     <a
-                      href="https://dl.acm.org/doi/abs/10.1145/3571884.3597143"
+                      href="https://link.springer.com/article/10.1007/s00146-024-01880-9"
                       target="_blank"
                       rel="noreferrer"
                       className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
@@ -317,7 +317,7 @@ export function ResearchPathways() {
                     </a>
 
                     <a
-                      href="https://dl.acm.org/doi/abs/10.1145/3571884.3597143"
+                      href="https://ieeexplore.ieee.org/abstract/document/10532140"
                       target="_blank"
                       rel="noreferrer"
                       className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
@@ -418,7 +418,7 @@ export function ResearchPathways() {
                     </p>
 
                     <a
-                      href="https://dl.acm.org/doi/abs/10.1145/3571884.3597143"
+                      href="https://academic.oup.com/iwc/article/37/5/444/7717778"
                       target="_blank"
                       rel="noreferrer"
                       className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
@@ -440,7 +440,7 @@ export function ResearchPathways() {
                     </a>
 
                      <a
-                      href="https://dl.acm.org/doi/abs/10.1145/3571884.3597143"
+                      href="https://www.scienceopen.com/hosted-document?doi=10.14236/ewic/BCSHCI2023.2"
                       target="_blank"
                       rel="noreferrer"
                       className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
@@ -583,7 +583,7 @@ export function ResearchPathways() {
                         Sinha, A.K., van der Maden, W., Axelsson, M., & Sadek, M.
                       </p>
                       <p className="mt-1 text-xs md:text-sm text-gray-700">
-                    Developing a standardised scale to quantitatively measure percieved AI value alignment with relevant human values. </p>
+                    Developing a standardised scale to quantitatively measure perceived AI value alignment with relevant human values. </p>
                     </div> 
 
                   </div>
@@ -667,7 +667,7 @@ export function ResearchPathways() {
                       </p>
                     </div>
                     <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                    Guidelines for integrating value sensitive design in responsible AI toolkits
+                    Guidelines for integrating value-sensitive design in responsible AI toolkits
                     </p>
                     <p className="mt-2 text-xs md:text-sm italic text-gray-700">
                       Sadek, M., Constantinides, M., Quercia, D. & Mougenot, C.
@@ -688,7 +688,7 @@ export function ResearchPathways() {
                       Sadek, M. & Peters, D.
                     </p>
                     <p className="mt-1 text-xs md:text-sm text-gray-700">
-                      A case study on how existing HCI/conversaitonal AI frameworks need adaptation to survive the shifts brought on by LLMs.
+                      A case study on how existing HCI/conversational AI frameworks need adaptation to survive the shifts brought on by LLMs.
                     </p>
                   </div>
 
@@ -718,7 +718,7 @@ export function ResearchPathways() {
                       Sadek, M., Hu, S. & Kohout, I.
                     </p>
                     <p className="mt-1 text-xs md:text-sm text-gray-700">
-                      Positioning system prompting as a method for democratising value-sensitive LLM design for users and understanding the impacts of different prompting approaches on percieved LLM value alignment.
+                      Positioning system prompting as a method for democratising value-sensitive LLM design for users and understanding the impacts of different prompting approaches on perceived LLM value alignment.
                     </p>
                   </div>
 
@@ -768,7 +768,7 @@ export function ResearchPathways() {
                     </p>
                   
                     <a
-                      href="https://dl.acm.org/doi/abs/10.1145/3571884.3597143"
+                      href=""
                       target="_blank"
                       rel="noreferrer"
                       className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
@@ -782,7 +782,7 @@ export function ResearchPathways() {
                         </p>
                       </div>
                       <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                      KNIT: Computational Boundary Objects for Real-Time Convergence in Interdisciplinary Teams 
+                      KNIT: Computational Boundary Objects for Real-Time Convergence in Interdisciplinary Teams
                       </p>
                       <p className="mt-2 text-xs md:text-sm italic text-gray-700">
                         Wan, E., Yin, C., Ito, A., Gao, Z., Jia, J., Taoka, Y., Saito, S., Sadek, M., & Mougenot, C.
@@ -862,7 +862,7 @@ export function ResearchPathways() {
                       Sadek, M. & Mougenot, C.
                     </p>
                     <p className="mt-1 text-xs md:text-sm text-gray-700">
-                      Using empirical research and interdisciplinary perspectives to provocotively frame anti-values as useful design constraints for conversational AI.
+                      Using empirical research and interdisciplinary perspectives to provocatively frame anti-values as useful design constraints for conversational AI.
                     </p>
                   </div>
 

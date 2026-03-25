@@ -8,14 +8,14 @@
 
 # Nextly - Landing Page Template with Next.js & Tailwind CSS
 
-Nextly is a free landing page & marketing website template for  startups and indie projects. Its built with Next.js & TailwindCSS.
-And its completely open-source.
+Nextly is a free landing page & marketing website template for startups and indie projects. It's built with Next.js & TailwindCSS.
+And it's completely open-source.
  
 ![image](https://user-images.githubusercontent.com/1884712/121497169-03228680-c990-11eb-975a-e77fddc43de0.png)
 
 ## How to use
 
-Click on the [Use Template](https://github.com/surjithctly/nextly-template/generate) button on this page to clone this respository to your github account. Or you can also clone this respository using terminal or bash. 
+Click on the [Use Template](https://github.com/surjithctly/nextly-template/generate) button on this page to clone this repository to your GitHub account. Or you can also clone this repository using terminal or bash. 
 
 ### 1\. Clone this Repository
 

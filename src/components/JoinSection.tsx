@@ -96,7 +96,7 @@ export function JoinSection() {
               </h3>
               <p className="text-sm md:text-base text-gray-800">
                 Get in touch to explore collaborative projects, joint grants, or
-                shared initiatives with the HIVE CAI lab.
+                shared initiatives with the HIVE CAI Lab.
               </p>
               <p className="mt-4 text-sm md:text-base text-gray-800">
                 Our projects are all focused on real-world applications and impact,
@@ -252,7 +252,7 @@ export function JoinSection() {
                             >
                               Gates Cambridge Scholarships
                             </a>{" "}
-                            must be applied for seperately in advance.
+                            must be applied for separately in advance.
                             <br />
                             <br />
                             Taught modules have included topics such as:
@@ -357,7 +357,7 @@ export function JoinSection() {
                             >
                               Gates Cambridge Scholarships
                             </a>{" "}
-                            must be applied for seperately in advance.
+                            must be applied for separately in advance.
                             <br />
                             <br />
                             Interdisciplinary co-supervision is available. Please

@@ -89,7 +89,7 @@ const collaborators: Person[] = [
     url: "https://www.lcfi.ac.uk/people/dorian-peters",
   },
   {
-    name: "Dr.-Ing. Edyta Bockuga",
+    name: "Dr.-Ing. Edyta Bogucka",
     role: "Research Scientist, Nokia Bell Labs",
     imageSrc: "/img/Edyta.jpg",
     url: "https://www.linkedin.com/in/epbogucka/?originalSubdomain=uk",
@@ -126,7 +126,7 @@ const collaborators: Person[] = [
   },
   {
     name: "Dr. Loraine Clarke",
-    role: "Design Researcher & Lecturer, St Andrews University",
+    role: "Design Researcher & Lecturer, University of St Andrews",
     imageSrc: "/img/loraine.jpg",
     url: "https://www.st-andrews.ac.uk/computer-science/people/lec24/",
   },
@@ -147,18 +147,6 @@ const collaboratorInstitutions: Institution[] = [
     alt: "The University of Edinburgh",
     sizeClass: "w-60 md:w-76 lg:w-84 h-20 md:h-24 lg:h-28",
     url: "https://www.ed.ac.uk/",
-  },
-  {
-    src: "/img/rm.jpg",
-    alt: "The Royal Marsden NHS Foundation Trust",
-    sizeClass: "w-60 md:w-76 lg:w-84 h-20 md:h-24 lg:h-28",
-    url: "https://www.royalmarsden.nhs.uk/",
-  },
-  {
-    src: "/img/rc.jpg",
-    alt: "Research Center Trustworthy Data Science and Security",
-    sizeClass: "w-60 md:w-76 lg:w-84 h-20 md:h-24 lg:h-28",
-    url: "https://rc-trust.ai/",
   },
   {
     src: "/img/delft.png",
