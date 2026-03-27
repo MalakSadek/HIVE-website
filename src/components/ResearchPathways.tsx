@@ -362,16 +362,13 @@ export function ResearchPathways() {
 
                     <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold text-orange-600">In Progress</p>
+                        <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
                       </div>
                       <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                        What values are embedded in AI systems?
+                        Understanding which values have been traditionally embedded and measured in AI systems.
                       </p>
                       <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Sinha, K., van der Maden, W., Axelsson, M. & Sadek, M.
-                      </p>
-                      <p className="mt-1 text-xs md:text-sm text-gray-700">
-                        A systematic review of work done to align AI systems with different human values to understand what those values are and how this was achieved.
+                        Investigators: Sinha, A.K., van der Maden, W., Axelsson, M. & Sadek, M.
                       </p>
                     </div>
                   </div>
@@ -466,16 +463,13 @@ export function ResearchPathways() {
 
                     <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold text-orange-600">In Progress</p>
+                        <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
                       </div>
                       <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                        Developing an LLM literacy toolkit for the general public
+                        Developing an LLM literacy toolkit for the general public.
                       </p>
                       <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Abdulsalam, A., Petti, U. & Sadek, M.
-                      </p>
-                      <p className="mt-1 text-xs md:text-sm text-gray-700">
-                       Exploring the development of a digital card-based toolkit to help people understand and prompt LLMs for better outcomes.
+                        Investigators: Abdulsalam, A., Petti, U. & Sadek, M.
                       </p>
                     </div> 
                   </div>
@@ -546,44 +540,15 @@ export function ResearchPathways() {
 
                     <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold text-orange-600">In Progress</p>
+                        <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
                       </div>
                       <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                        Do value-sensitive design frameworks scale globally?
+                        Critically examining value-sensitive design frameworks and practices across several factors such as global applicability, accounting for demographic diversity, and empirical measurement.
                       </p>
                       <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Sadek, M., van der Maden, W., Wan, E., & Mougenot, C.
+                        Investigators: Sadek, M., Sinha, A.K., van der Maden, W., Wan, E., Mougenot, C., Axelsson, M.
                       </p>
-                      <p className="mt-1 text-xs md:text-sm text-gray-700">
-                       A cross-national study examining the applicability and generalisability of popular value-sensitive design frameworks across national contexts and scenarios.</p>
-                    </div> 
-
-                    <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold text-orange-600">In Progress</p>
-                      </div>
-                      <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                        Which users and whose values?
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Sadek, M. & Mougenot, C.
-                      </p>
-                      <p className="mt-1 text-xs md:text-sm text-gray-700">
-                       An analysis of how demographic factors shape users&apos; perceptions of AI chatbots&apos; value alignment.</p>
-                    </div> 
-
-                    <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold text-orange-600">In Progress</p>
-                      </div>
-                      <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                        Towards a perceived AI value alignment scale
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Sinha, A.K., van der Maden, W., Axelsson, M., & Sadek, M.
-                      </p>
-                      <p className="mt-1 text-xs md:text-sm text-gray-700">
-                    Developing a standardised scale to quantitatively measure perceived AI value alignment with relevant human values. </p>
+        
                     </div> 
 
                   </div>
@@ -679,47 +644,15 @@ export function ResearchPathways() {
 
                   <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
                     <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold text-orange-600">In Progress</p>
+                      <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
                     </div>
                     <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                      How have HCI/Conversational AI frameworks adapted to the LLM era?
+                      Exploring alternative ways for communicating and interacting with conversational AI values, such as interactive visualisations and prompting techniques.
                     </p>
                     <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                      Sadek, M. & Peters, D.
+                      Investigators: Sadek, M., Peters, D., Huang, Q.F, Bogucka, E., Hu, S., Kohout, I., Desai, S.
                     </p>
-                    <p className="mt-1 text-xs md:text-sm text-gray-700">
-                      A case study on how existing HCI/conversational AI frameworks need adaptation to survive the shifts brought on by LLMs.
-                    </p>
-                  </div>
-
-                  <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold text-orange-600">In Progress</p>
-                    </div>
-                    <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                      Visualising Human Values Embedded in LLM Chatbots
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                      Huang, Q.F, Bogucka, E. & Sadek, M.
-                    </p>
-                    <p className="mt-1 text-xs md:text-sm text-gray-700">
-                      Exploring ways we can visualise the human values embedded in LLM chatbots, understand the impacts on users, and allow users to edit visualisations themselves.
-                    </p>
-                  </div>
-
-                  <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold text-orange-600">In Progress</p>
-                    </div>
-                    <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                      Prompting Strategies for Improving LLM Value-Sensitivity
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                      Sadek, M., Hu, S. & Kohout, I.
-                    </p>
-                    <p className="mt-1 text-xs md:text-sm text-gray-700">
-                      Positioning system prompting as a method for democratising value-sensitive LLM design for users and understanding the impacts of different prompting approaches on perceived LLM value alignment.
-                    </p>
+                   
                   </div>
 
                 </div>
@@ -838,32 +771,15 @@ export function ResearchPathways() {
 
                   <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
                     <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold text-orange-600">In Progress</p>
+                      <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
                     </div>
                     <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                      The impacts of LLM facilitators on collaborative learning
+                      Exploring human-centred AI applications to support collaborative tasks such as problem solving and learning.
                     </p>
                     <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                      Wang, Q.S., Axelsson, M., Wan, E. & Sadek, M.
+                     Investigators: Wang, Q.S., Axelsson, M., Wan, E., Sadek, M., Mougenot, C.
                     </p>
-                    <p className="mt-1 text-xs md:text-sm text-gray-700">
-                      Exploring the impact of LLM facilitators on participation and empowerment in collaborative learning and problem solving environments.
-                    </p>
-                  </div>
 
-                  <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold text-orange-600">In Progress</p>
-                    </div>
-                    <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                      Conceptualising anti-values as conversational AI design constraints
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                      Sadek, M. & Mougenot, C.
-                    </p>
-                    <p className="mt-1 text-xs md:text-sm text-gray-700">
-                      Using empirical research and interdisciplinary perspectives to provocatively frame anti-values as useful design constraints for conversational AI.
-                    </p>
                   </div>
 
                 </div>
