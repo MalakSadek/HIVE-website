@@ -18,7 +18,7 @@ const DEFAULT_ACTIVITIES: Activity[] = [
   },
   {
     text: "**Afifah Kashif** presented her work ['Governance as Methodology: Toward Anticipatory, Design-Embedded Governance for HRI'](https://sites.google.com/view/interaiworkshophri2026/accepted-papers?authuser=0) at the InterAI Workshop at the [IEEE/ACM International Conference on Human-Robot Interaction (HRI 2026)](https://humanrobotinteraction.org/2026/) in Edinburgh.",
-    href: "https://sites.google.com/view/interaiworkshophri2026/accepted-papers?authuser=0",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7443265633196113920/",
   },
   {
     text: "**Dr. Malak Sadek** and **Dr. Dorian Peters** held a workshop titled ['Aligning Conversational AI with Human Values'](https://www.facebook.com/IPPAnet/videos/can-ai-truly-support-human-flourishing-it-starts-with-embedding-your-values-from/919555910537110/) at [the International Positive Psychology Association](https://ippanetwork.org/)'s ['AI and the Future of Wellbeing' Summit](https://ippasummit.vfairs.com/).",
