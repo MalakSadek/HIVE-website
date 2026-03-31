@@ -21,7 +21,7 @@ type Institution = {
 const teamMembers: Person[] = [
   {
     name: "Dr. Malak Sadek",
-    role: "Lab Lead",
+    role: "Director",
     imageSrc: "/img/malak.jpg",
     url: "https://www.chia.cam.ac.uk/team/malak-sadek",
   },
@@ -95,16 +95,22 @@ const collaborators: Person[] = [
     url: "https://www.linkedin.com/in/epbogucka/?originalSubdomain=uk",
   },
   {
-    name: "Dr. Emma Kallina",
-    role: "Postdoctoral Researcher, Research Center for Trustworthy Data Science and Security",
-    imageSrc: "/img/emma.jpg",
-    url: "https://www.linkedin.com/in/emma-kallina/?originalSubdomain=uk",
-  },
-  {
     name: "Dr. Willem van der Maden",
     role: "Postdoctoral Researcher in Human-Centered AI Evaluation & Design, ITU Copenhagen",
     imageSrc: "/img/willem.jpg",
     url: "https://www.linkedin.com/in/wlavandermaden/",
+  },
+  {
+    name: "Dr. Smit Desai",
+    role: "Assistant Professor at the College of Arts, Media and Design, Northeastern University",
+    imageSrc: "/img/smit.jpg",
+    url: "https://www.linkedin.com/in/smit-desai-6b54bb83/",
+  },
+  {
+    name: "Dr. Emma Kallina",
+    role: "Postdoctoral Researcher, Research Center for Trustworthy Data Science and Security",
+    imageSrc: "/img/emma.jpg",
+    url: "https://www.linkedin.com/in/emma-kallina/?originalSubdomain=uk",
   },
   {
     name: "Dr. Minja Axelsson",
@@ -139,7 +145,7 @@ const collaborators: Person[] = [
 ];
 
 const collaboratorInstitutions: Institution[] = [
-  { src: "/img/imperial.png", alt: "Imperial College London", url: "https://www.imperial.ac.uk/" },
+  { src: "/img/imperial.png", alt: "Imperial College London", url: "https://www.imperial.ac.uk/", imageClassName: "-translate-x-5" },
   { src: "/img/cfi.png", alt: "Leverhulme Centre for the Future of Intelligence", url: "https://www.lcfi.ac.uk/" },
   { src: "/img/nokia.png", alt: "Nokia Bell Labs", url: "https://www.nokia.com/bell-labs/" },
   {
@@ -153,15 +159,28 @@ const collaboratorInstitutions: Institution[] = [
     alt: "The University of Edinburgh",
     sizeClass: "w-60 md:w-76 lg:w-84 h-20 md:h-24 lg:h-28",
     url: "https://www.ed.ac.uk/",
+    imageClassName: "-translate-x-7"
   },
   {
     src: "/img/delft.png",
     alt: "Delft University of Technology (TU Delft)",
     url: "https://www.tudelft.nl/en/",
-    imageClassName: "scale-110 -translate-x-6 -translate-y-4",
+    imageClassName: "scale-110 -translate-x-4 -translate-y-4",
   },
   { src: "/img/copenhagen.jpg", alt: "IT University of Copenhagen (ITU)", url: "https://en.itu.dk/" },
-  { src: "/img/at.png", alt: "Alan Turing Institute", url: "https://www.turing.ac.uk/" },
+  {
+    src: "/img/chai.jpg",
+    alt: "Conversational Human-AI Interactions Lab, Northeastern University",
+    sizeClass: "w-100 md:w-[24rem] lg:w-[28rem] h-100 md:h-32 lg:h-36",
+    url: "https://chai-nu.notion.site/home-site",
+    imageClassName: "-translate-x-10"
+  },
+  {
+    src: "/img/at.png",
+    alt: "Alan Turing Institute",
+    url: "https://www.turing.ac.uk/",
+    sizeClass: "w-44 md:w-52 h-16 md:h-20 lg:h-24",
+  },
 ];
 
 export function TeamSection() {
@@ -310,26 +329,62 @@ export function TeamSection() {
           )}
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-          {collaboratorInstitutions.map((institution) => (
-            <a
-              key={institution.src}
-              href={institution.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`relative block ${institution.sizeClass ?? "h-12 md:h-14 lg:h-16 w-44 md:w-52"} hover:opacity-80 transition-opacity`}
-              aria-label={institution.alt}
-            >
-              <Image
-                src={institution.src}
-                alt={institution.alt}
-                fill
-                sizes="(max-width: 768px) 176px, (max-width: 1024px) 208px, 208px"
-                className={`object-contain ${institution.imageClassName ?? ""}`}
-                style={institution.imageStyle}
-              />
-            </a>
-          ))}
+        <div className="mt-12">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 xl:hidden">
+            {collaboratorInstitutions.map((institution) => (
+              <a
+                key={institution.src}
+                href={institution.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`relative block shrink-0 ${institution.sizeClass ?? "h-12 md:h-14 lg:h-16 w-44 md:w-52"} hover:opacity-80 transition-opacity`}
+                aria-label={institution.alt}
+              >
+                <Image
+                  src={institution.src}
+                  alt={institution.alt}
+                  fill
+                  sizes="(max-width: 768px) 176px, 208px"
+                  className={`object-contain ${institution.imageClassName ?? ""}`}
+                  style={institution.imageStyle}
+                />
+              </a>
+            ))}
+          </div>
+
+          <div className="hidden xl:flex flex-col gap-y-6">
+            {[
+              { items: collaboratorInstitutions.slice(0, 4), width: "w-full" },
+              { items: collaboratorInstitutions.slice(4, 7), width: "w-3/4" },
+              { items: collaboratorInstitutions.slice(7, 9), width: "w-1/2" },
+            ].map((row, rowIndex) => (
+              <div key={rowIndex} className={`${row.width} mx-auto flex`}>
+                {row.items.map((institution) => (
+                  <div
+                    key={institution.src}
+                    className="flex-1 min-w-0 flex justify-center items-center"
+                  >
+                    <a
+                      href={institution.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`relative block ${institution.sizeClass ?? "h-14 lg:h-16 w-52"} hover:opacity-80 transition-opacity`}
+                      aria-label={institution.alt}
+                    >
+                      <Image
+                        src={institution.src}
+                        alt={institution.alt}
+                        fill
+                        sizes="(max-width: 1024px) 208px, 208px"
+                        className={`object-contain ${institution.imageClassName ?? ""}`}
+                        style={institution.imageStyle}
+                      />
+                    </a>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-16 border-t-4 border-hiveGold w-full" />
