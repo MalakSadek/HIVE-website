@@ -68,7 +68,7 @@ export function JoinSection() {
 
           <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
             <a
-              href="mailto:mfzas2@cam.ac.uk"
+              href="mailto:hive@chia.cam.ac.uk"
               className="relative block h-full bg-hiveGray rounded-lg p-6 md:p-7 text-left border border-transparent shadow-sm hover:shadow-none hover:border-black transition-shadow"
             >
               <span
