@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase,
   title: "HIVE CAI Lab",
   description:
-    "HIVE CAI Lab – advancing human-centred, value-sensitive conversational AI.",
+    "HIVE CAI Lab – researching Human Interactions, Values and Experiences with Conversational AI.",
   openGraph: {
     type: "website",
     images: [
