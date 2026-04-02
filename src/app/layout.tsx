@@ -5,9 +5,11 @@ import { Footer } from "@/components/Footer";
 
 const metadataBase = new URL(
   process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000")
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "http://localhost:3000")
 );
 
 export const metadata: Metadata = {
@@ -16,16 +18,26 @@ export const metadata: Metadata = {
   description:
     "HIVE CAI Lab – advancing human-centred, value-sensitive conversational AI.",
   openGraph: {
+    type: "website",
     images: [
       {
-        url: "/img/logo-text-full-white.png",
+        url: "/img/open-graph.png",
+        width: 1200,
+        height: 630,
         alt: "HIVE CAI Lab",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/img/logo-text-full-white.png"],
+    images: [
+      {
+        url: "/img/open-graph.png",
+        width: 1200,
+        height: 630,
+        alt: "HIVE CAI Lab",
+      },
+    ],
   },
 };
 
