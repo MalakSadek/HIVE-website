@@ -13,7 +13,7 @@ export function LandingImage() {
         />
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <div className="bg-hiveGold/90 rounded-3xl px-6 py-4 md:px-10 md:py-6 max-w-2xl text-center shadow-lg">
-            <p className="text-xl md:text-2xl lg:text-3xl tracking-tight text-hiveDark leading-relaxed">
+            <h1 className="text-xl md:text-2xl lg:text-3xl tracking-tight text-hiveDark leading-relaxed">
               The{" "}
               <span className="font-extrabold">
                 HIVE
@@ -42,7 +42,7 @@ export function LandingImage() {
                 <span className="underline font-extrabold">C</span>onversational
               </span>{" "}
               <span className="underline font-extrabold">AI</span>
-            </p>
+            </h1>
           </div>
         </div>
         <div className="absolute bottom-2 right-3 md:bottom-3 md:right-4 text-[6px] md:text-[7px] text-white/80 drop-shadow-sm">
