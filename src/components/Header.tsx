@@ -86,7 +86,7 @@ export function Header() {
 
         <nav
           aria-label="Primary navigation"
-          className="hidden md:flex absolute left-1/2 -translate-x-1/2"
+          className="hidden xl:flex absolute left-1/2 -translate-x-1/2"
         >
           <ul className="flex items-center gap-4 lg:gap-6 text-sm md:text-base">
             {NAV_ITEMS.map((item) => (
@@ -108,7 +108,7 @@ export function Header() {
             href="https://www.chia.cam.ac.uk/"
             target="_blank"
             rel="noreferrer"
-            className="relative h-10 w-32 md:h-11 md:w-36"
+            className="relative h-10 w-16 sm:w-32 md:h-11 md:w-36"
             aria-label="Visit CHIA website"
           >
             <Image
@@ -122,7 +122,7 @@ export function Header() {
             href="https://www.cam.ac.uk/"
             target="_blank"
             rel="noreferrer"
-            className="relative h-8 w-32 md:h-9 md:w-40"
+            className="relative h-8 w-20 sm:w-32 md:h-9 md:w-40"
             aria-label="Visit University of Cambridge website"
           >
             <Image

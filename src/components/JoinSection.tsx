@@ -139,7 +139,7 @@ export function JoinSection() {
                 .
               </p>
 
-              <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 items-center">
+              <div className="mt-8 mb-8 md:mb-0 grid grid-cols-2 gap-x-4 gap-y-10 items-center">
                 <div className="relative h-12 w-full">
                   <Image src="/img/at.png" alt="The Alan Turing Institute logo" fill className="object-contain -ml-8" />
                 </div>
