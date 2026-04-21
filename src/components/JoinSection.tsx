@@ -140,17 +140,45 @@ export function JoinSection() {
               </p>
 
               <div className="mt-8 mb-8 md:mb-0 grid grid-cols-2 gap-x-4 gap-y-10 items-center">
-                <div className="relative h-12 w-full">
-                  <Image src="/img/at.png" alt="The Alan Turing Institute logo" fill className="object-contain -ml-8" />
+                <div className="flex items-center justify-center">
+                  <Image
+                    src="/img/at.png"
+                    alt="The Alan Turing Institute logo"
+                    width={220}
+                    height={48}
+                    unoptimized
+                    className="h-12 w-auto object-contain -ml-10"
+                  />
                 </div>
-                <div className="relative h-12 w-full">
-                  <Image src="/img/cfi.png" alt="Leverhulme Centre for the Future of Intelligence logo" fill className="object-contain -ml-8" />
+                <div className="flex items-center justify-center">
+                  <Image
+                    src="/img/cfi.png"
+                    alt="Leverhulme Centre for the Future of Intelligence logo"
+                    width={220}
+                    height={48}
+                    unoptimized
+                    className="h-12 w-auto object-contain -ml-10"
+                  />
                 </div>
-                <div className="relative h-12 w-full">
-                  <Image src="/img/ihs.png" alt="Institute for Humane Studies logo" fill className="object-contain" />
+                <div className="flex items-center justify-center">
+                  <Image
+                    src="/img/ihs.png"
+                    alt="Institute for Humane Studies logo"
+                    width={220}
+                    height={48}
+                    unoptimized
+                    className="h-12 w-auto object-contain"
+                  />
                 </div>
-                <div className="relative h-12 w-full">
-                  <Image src="/img/chrg.png" alt="Cambridge Humanities Research Grants Scheme logo" fill className="object-contain" />
+                <div className="flex items-center justify-center">
+                  <Image
+                    src="/img/chrg.png"
+                    alt="Cambridge Humanities Research Grants Scheme logo"
+                    width={220}
+                    height={48}
+                    unoptimized
+                    className="h-12 w-auto object-contain"
+                  />
                 </div>
               </div>
             </a>
