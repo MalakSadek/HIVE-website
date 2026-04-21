@@ -13,6 +13,10 @@ const activities: Activity[] = [];
 
 const DEFAULT_ACTIVITIES: Activity[] = [
   {
+    text: "**Dr. Malak Sadek** was elected as **Communications Officer** for the **British Computer Society (BCS)** Interaction Specialist Group. This is the oldest and largest group of HCI academics and professionals in Europe.",
+    href: "https://www.bcs.org/membership-and-registrations/member-communities/interaction-specialist-group/",
+  },
+  {
     text: "**HIVE CAI Lab's** publication with the **Collective Innovation Lab** at Imperial College London, 'KNIT: Computational Boundary Objects for Real-Time Convergence in Interdisciplinary Teams', at CHI 2026 has earned an **Honourable Mention**.",
     href: "https://programs.sigchi.org/chi/2026/program/content/223274",
   },
