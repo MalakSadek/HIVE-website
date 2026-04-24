@@ -90,7 +90,7 @@ const collaborators: Person[] = [
   },
   {
     name: "Dr.-Ing. Edyta Bogucka",
-    role: "Research Scientist, Nokia Bell Labs",
+    role: "Senior Research Scientist, Nokia Bell Labs",
     imageSrc: "/img/Edyta.jpg",
     url: "https://www.linkedin.com/in/epbogucka/?originalSubdomain=uk",
   },
