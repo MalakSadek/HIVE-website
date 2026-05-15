@@ -33,9 +33,15 @@ const teamMembers: Person[] = [
   },
   {
     name: "Isabelle Kohout",
-    role: "Visiting Researcher",
+    role: "Research Assistant",
     imageSrc: "/img/isabelle.png",
     url: "https://www.linkedin.com/in/isabellekohout/",
+  },
+  {
+    name: "Anshul Sinha",
+    role: "Research Assistant",
+    imageSrc: "/img/anshul.jpg",
+    url: "https://www.linkedin.com/in/anshulkks/",
   },
   {
     name: "Afifah Kashif",
@@ -48,12 +54,6 @@ const teamMembers: Person[] = [
     role: "MPhil Student",
     imageSrc: "/img/amirat.jpg",
     url: "https://www.mastercardfoundation.fund.cam.ac.uk/staff/amirat-abdulsalam",
-  },
-  {
-    name: "Anshul Sinha",
-    role: "MPhil Student",
-    imageSrc: "/img/anshul.jpg",
-    url: "https://www.linkedin.com/in/anshulkks/",
   },
   {
     name: "Qingfeng Huang",
