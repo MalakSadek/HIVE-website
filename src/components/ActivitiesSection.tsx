@@ -13,6 +13,10 @@ const activities: Activity[] = [];
 
 const DEFAULT_ACTIVITIES: Activity[] = [
   {
+    text: "The HIVE CAI Lab has three forthcoming publications at the [ACM Conference for Conversational User Interfaces (CUI 2026)](https://cui.acm.org/2026/).",
+    href: "",
+  },
+  {
     text: "**Dr. Malak Sadek** was elected as **Communications Officer** for the **British Computer Society (BCS)** Interaction Specialist Group. This is the oldest and largest group of HCI academics and professionals in Europe.",
     href: "https://www.bcs.org/membership-and-registrations/member-communities/interaction-specialist-group/",
   },
@@ -43,14 +47,17 @@ const DEFAULT_ACTIVITIES: Activity[] = [
  *
  * Supported syntax:
  * - Bold: `**some text**`
+ * - Underline: `__some text__`
  * - Link: `[label](https://example.com)`
  *
  * Examples:
  * - "Dr. **Malak Sadek** presented at [The Symposium](https://example.com)"
+ * - "Earned an __Honourable Mention__ at CHI 2026"
  */
 function renderActivityText(text: string): ReactNode {
-  // Match either a markdown-style link or bold segment.
-  const pattern = /(\[([^\]]+)\]\(([^)]+)\))|(\*\*([^*]+)\*\*)/g;
+  // Match a markdown-style link, bold segment, or underline segment.
+  const pattern =
+    /(\[([^\]]+)\]\(([^)]+)\))|(\*\*([^*]+)\*\*)|(__([^_]+)__)/g;
   const nodes: ReactNode[] = [];
 
   let lastIndex = 0;
@@ -67,6 +74,7 @@ function renderActivityText(text: string): ReactNode {
     const label = match[2];
     const url = match[3];
     const boldText = match[5];
+    const underlineText = match[7];
 
     if (fullMatch.startsWith("[")) {
       // Link
@@ -84,9 +92,17 @@ function renderActivityText(text: string): ReactNode {
           {label}
         </a>
       );
-    } else {
-      // Bold
+    } else if (fullMatch.startsWith("**")) {
       nodes.push(<strong key={`${matchStart}-${fullMatch}`}>{boldText}</strong>);
+    } else {
+      nodes.push(
+        <span
+          key={`${matchStart}-${fullMatch}`}
+          className="underline underline-offset-4 decoration-hiveDark"
+        >
+          {underlineText}
+        </span>
+      );
     }
 
     lastIndex = matchStart + fullMatch.length;
