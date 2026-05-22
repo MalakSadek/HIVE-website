@@ -13,6 +13,10 @@ const activities: Activity[] = [];
 
 const DEFAULT_ACTIVITIES: Activity[] = [
   {
+    text: "**Dr. Malak Sadek** delivered a talk titled 'Human Values in AI Design' as part of [Lloyd Bank's 'Leading with AI' training program](https://www.lloydsbankinggroup.com/media/press-releases/2025/lloyds-banking-group-2025/lloyds-pioneers-ai-training.html) for senior leadership.",
+    href: "https://www.linkedin.com/posts/malaksadek_leadership-aistrategy-aidesign-ugcPost-7463542806314250241-ftp0?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAACdPwK4BgYoJpjX_VYdfCWS2hzGr4rozTzI",
+  },
+  {
     text: "The HIVE CAI Lab has three forthcoming publications at the [ACM Conference for Conversational User Interfaces (CUI 2026)](https://cui.acm.org/2026/).",
     href: "",
   },
