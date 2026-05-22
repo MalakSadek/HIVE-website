@@ -29,7 +29,7 @@ const DEFAULT_ACTIVITIES: Activity[] = [
     href: "https://programs.sigchi.org/chi/2026/program/content/223274",
   },
   {
-    text: "**Afifah Kashif** presented her work ['Governance as Methodology: Toward Anticipatory, Design-Embedded Governance for HRI'](https://sites.google.com/view/interaiworkshophri2026/accepted-papers?authuser=0) at the InterAI Workshop at the [IEEE/ACM International Conference on Human-Robot Interaction (HRI 2026)](https://humanrobotinteraction.org/2026/) in Edinburgh.",
+    text: "**Afifah Kashif** presented her work ['Governance as Methodology: Toward Anticipatory, Design-Embedded Governance for HRI'](https://sites.google.com/view/interaiworkshophri2026/accepted-papers?authuser=0) at the InterAI Workshop at the [IEEE/ACM International Conference on Human-Robot Interaction (HRI 2026)](https://humanrobotinteraction.org/2026/) in Edinburgh. This was possible thanks to travel grants from [Claire College](https://www.clare.cam.ac.uk/) and the [Centre for Human-Inspired AI (CHIA)](https://chia.cam.ac.uk/).",
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7443265633196113920/",
   },
   {
