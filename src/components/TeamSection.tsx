@@ -26,12 +26,6 @@ const teamMembers: Person[] = [
     url: "https://www.chia.cam.ac.uk/team/malak-sadek",
   },
   {
-    name: "Qian Shu (Helen) Wang",
-    role: "Incoming PhD Student",
-    imageSrc: "/img/helen.jpg",
-    url: "https://www.linkedin.com/in/helen-wang-cambridge/",
-  },
-  {
     name: "Isabelle Kohout",
     role: "Research Assistant",
     imageSrc: "/img/isabelle.png",
@@ -42,6 +36,12 @@ const teamMembers: Person[] = [
     role: "Research Assistant",
     imageSrc: "/img/anshul.jpg",
     url: "https://www.linkedin.com/in/anshulkks/",
+  },
+  {
+    name: "Qian Shu (Helen) Wang",
+    role: "MPhil Student",
+    imageSrc: "/img/helen.jpg",
+    url: "https://www.linkedin.com/in/helen-wang-cambridge/",
   },
   {
     name: "Afifah Kashif",
