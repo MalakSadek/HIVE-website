@@ -131,12 +131,6 @@ const collaborators: Person[] = [
     url: "https://www.linkedin.com/in/echowan/",
   },
   {
-    name: "Dr. Songbo Hu",
-    role: "Research Associate, Language Technology Lab, University of Cambridge",
-    imageSrc: "/img/songbo.jpg",
-    url: "https://www.linkedin.com/in/songbohu/",
-  },
-  {
     name: "Dr. Loraine Clarke",
     role: "Design Researcher & Lecturer, University of St Andrews",
     imageSrc: "/img/loraine.jpg",
