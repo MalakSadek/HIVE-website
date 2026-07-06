@@ -32,6 +32,18 @@ const teamMembers: Person[] = [
     url: "https://www.linkedin.com/in/isabellekohout/",
   },
   {
+    name: "Sara Singergy",
+    role: "Research Assistant",
+    imageSrc: "/img/sara-singergy.jpeg",
+    url: "https://www.linkedin.com/in/sara-elsingergy/",
+  },
+  {
+    name: "Ziwen Zhu",
+    role: "Visiting Researcher",
+    imageSrc: "/img/ziwen-zhu.jpg",
+    url: "https://www.ziwendesign.com/",
+  },
+  {
     name: "Anshul Sinha",
     role: "Research Assistant",
     imageSrc: "/img/anshul.jpg",
@@ -139,7 +151,7 @@ const collaborators: Person[] = [
 ];
 
 const collaboratorInstitutions: Institution[] = [
-  { src: "/img/imperial.png", alt: "Imperial College London", url: "https://www.imperial.ac.uk/", imageClassName: "-translate-x-5" },
+  { src: "/img/imperial.png", alt: "Imperial College London", url: "https://www.imperial.ac.uk/" },
   { src: "/img/cfi.png", alt: "Leverhulme Centre for the Future of Intelligence", url: "https://www.lcfi.ac.uk/" },
   { src: "/img/nokia.png", alt: "Nokia Bell Labs", url: "https://www.nokia.com/bell-labs/" },
   {
@@ -153,27 +165,35 @@ const collaboratorInstitutions: Institution[] = [
     alt: "The University of Edinburgh",
     sizeClass: "w-60 md:w-76 lg:w-84 h-20 md:h-24 lg:h-28",
     url: "https://www.ed.ac.uk/",
-    imageClassName: "-translate-x-7"
   },
   {
     src: "/img/delft.png",
     alt: "Delft University of Technology (TU Delft)",
     url: "https://www.tudelft.nl/en/",
-    imageClassName: "scale-110 -translate-x-4 -translate-y-4",
+    imageClassName: "-translate-y-3",
   },
   { src: "/img/copenhagen.jpg", alt: "IT University of Copenhagen (ITU)", url: "https://en.itu.dk/" },
   {
     src: "/img/chai.jpg",
     alt: "Conversational Human-AI Interactions Lab, Northeastern University",
-    sizeClass: "w-100 md:w-[24rem] lg:w-[28rem] h-100 md:h-32 lg:h-36",
+    sizeClass: "w-56 md:w-64 lg:w-72 h-24 md:h-28 lg:h-32",
     url: "https://chai-nu.notion.site/home-site",
-    imageClassName: "-translate-x-10"
   },
   {
     src: "/img/at.png",
     alt: "Alan Turing Institute",
     url: "https://www.turing.ac.uk/",
     sizeClass: "w-44 md:w-52 h-16 md:h-20 lg:h-24",
+  },
+  {
+    src: "/img/northumbria-logo.png",
+    alt: "Northumbria University Newcastle",
+    url: "https://www.northumbria.ac.uk/",
+  },
+  {
+    src: "/img/auc-logo.png",
+    alt: "The American University in Cairo",
+    url: "https://www.aucegypt.edu/",
   },
 ];
 
@@ -278,7 +298,7 @@ export function TeamSection() {
   };
 
   return (
-    <section id="team" className="bg-white pt-16 pb-8 md:pb-10">
+    <section id="team" className="bg-white pt-8 pb-8 md:pb-10">
       <Container>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-hiveDark mb-10 text-center">
           Team
@@ -297,7 +317,7 @@ export function TeamSection() {
                     : teamRemainder === 2 && index === lastTeamIndex
                       ? "md:col-start-4"
                       : undefined
-              )
+            )
           )}
         </div>
 
@@ -324,14 +344,14 @@ export function TeamSection() {
         </div>
 
         <div className="mt-12">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 xl:hidden">
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 xl:hidden">
             {collaboratorInstitutions.map((institution) => (
               <a
                 key={institution.src}
                 href={institution.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`relative block shrink-0 ${institution.sizeClass ?? "h-12 md:h-14 lg:h-16 w-44 md:w-52"} hover:opacity-80 transition-opacity`}
+                className={`relative block shrink-0 max-w-full ${institution.sizeClass ?? "h-12 md:h-14 lg:h-16 w-44 md:w-52"} hover:opacity-80 transition-opacity`}
                 aria-label={institution.alt}
               >
                 <Image
@@ -346,23 +366,26 @@ export function TeamSection() {
             ))}
           </div>
 
-          <div className="hidden xl:flex flex-col gap-y-6">
+          <div className="hidden xl:flex flex-col gap-y-10">
             {[
-              { items: collaboratorInstitutions.slice(0, 4), width: "w-full" },
-              { items: collaboratorInstitutions.slice(4, 7), width: "w-3/4" },
-              { items: collaboratorInstitutions.slice(7, 9), width: "w-1/2" },
+              { items: collaboratorInstitutions.slice(0, 4), width: "w-full", columns: "grid-cols-4" },
+              { items: collaboratorInstitutions.slice(4, 8), width: "w-full", columns: "grid-cols-4" },
+              { items: collaboratorInstitutions.slice(8, 11), width: "w-3/4", columns: "grid-cols-3" },
             ].map((row, rowIndex) => (
-              <div key={rowIndex} className={`${row.width} mx-auto flex`}>
+              <div
+                key={rowIndex}
+                className={`${row.width} mx-auto grid ${row.columns} items-center gap-x-16 gap-y-8`}
+              >
                 {row.items.map((institution) => (
                   <div
                     key={institution.src}
-                    className="flex-1 min-w-0 flex justify-center items-center"
+                    className="min-w-0 flex justify-center items-center"
                   >
                     <a
                       href={institution.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`relative block ${institution.sizeClass ?? "h-14 lg:h-16 w-52"} hover:opacity-80 transition-opacity`}
+                      className={`relative block max-w-full ${institution.sizeClass ?? "h-14 lg:h-16 w-52"} hover:opacity-80 transition-opacity`}
                       aria-label={institution.alt}
                     >
                       <Image
@@ -386,4 +409,3 @@ export function TeamSection() {
     </section>
   );
 }
-
