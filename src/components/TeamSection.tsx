@@ -22,7 +22,7 @@ type Institution = {
 const teamMembers: Person[] = [
   {
     name: "Dr. Malak Sadek",
-    role: "Director",
+    role: "Lab Director & PI",
     imageSrc: "/img/malak.jpg",
     url: "https://www.chia.cam.ac.uk/team/malak-sadek",
   },
