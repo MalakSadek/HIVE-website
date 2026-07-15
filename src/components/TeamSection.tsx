@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { Container } from "./Container";
+import { PastMembersToggle } from "./PastMembersToggle";
 
 type Person = {
   name: string;
@@ -26,6 +27,24 @@ const teamMembers: Person[] = [
     url: "https://www.chia.cam.ac.uk/team/malak-sadek",
   },
   {
+    name: "Dr. Imane Chafi",
+    role: "Postdoctoral Researcher",
+    imageSrc: "/img/imane-chafi.jpg",
+    url: "https://www.imanechafi.com/",
+  },
+  {
+    name: "Eshan Varma",
+    role: "Visiting Researcher",
+    imageSrc: "/img/eshan-varma.jpeg",
+    url: "https://www.linkedin.com/in/eshanv/",
+  },
+  {
+    name: "Ziwen Zhu",
+    role: "Visiting Researcher",
+    imageSrc: "/img/ziwen-zhu.jpg",
+    url: "https://www.ziwendesign.com/",
+  },
+  {
     name: "Isabelle Kohout",
     role: "Research Assistant",
     imageSrc: "/img/isabelle.png",
@@ -36,12 +55,6 @@ const teamMembers: Person[] = [
     role: "Research Assistant",
     imageSrc: "/img/sara-singergy.jpeg",
     url: "https://www.linkedin.com/in/sara-elsingergy/",
-  },
-  {
-    name: "Ziwen Zhu",
-    role: "Visiting Researcher",
-    imageSrc: "/img/ziwen-zhu.jpg",
-    url: "https://www.ziwendesign.com/",
   },
   {
     name: "Anshul Sinha",
@@ -131,16 +144,19 @@ const collaborators: Person[] = [
     url: "https://www.linkedin.com/in/minjaaxelsson/",
   },
   {
-    name: "Dr. Uta Hinrichs",
-    role: "Associate Professor in Data Visualisation, Institute of Language, Cognition and Computation, University of Edinburgh",
-    imageSrc: "/img/Uta.jpg",
-    url: "https://www.research.ed.ac.uk/en/persons/uta-hinrichs/",
-  },
-  {
     name: "Echo Wan",
     role: "Doctoral Student, Imperial College London & Patient Engagement Coordinator for Data Science Projects, Royal Marsden",
     imageSrc: "/img/echo.jpg",
     url: "https://www.linkedin.com/in/echowan/",
+  },
+];
+
+const pastMembersAndCollaborators: Person[] = [
+  {
+    name: "Dr. Uta Hinrichs",
+    role: "Associate Professor in Data Visualisation, Institute of Language, Cognition and Computation, University of Edinburgh",
+    imageSrc: "/img/Uta.jpg",
+    url: "https://www.research.ed.ac.uk/en/persons/uta-hinrichs/",
   },
   {
     name: "Dr. Loraine Clarke",
@@ -204,6 +220,9 @@ export function TeamSection() {
 
   const lastCollaboratorIndex = collaborators.length - 1;
   const collaboratorsRemainder = collaborators.length % mdColumns;
+
+  const lastPastMemberIndex = pastMembersAndCollaborators.length - 1;
+  const pastMembersRemainder = pastMembersAndCollaborators.length % mdColumns;
 
   const renderPerson = (
     person: Person,
@@ -403,6 +422,31 @@ export function TeamSection() {
             ))}
           </div>
         </div>
+
+        <PastMembersToggle>
+          <div
+            id="past-members-and-collaborators"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-10 mb-0"
+          >
+            {(
+              pastMembersAndCollaborators.length
+                ? pastMembersAndCollaborators
+                : new Array(3).fill(null)
+            ).map((person, index) =>
+              renderPerson(
+                (person ?? { name: "", role: "" }),
+                index,
+                pastMembersRemainder === 1 && index === lastPastMemberIndex
+                  ? "md:col-start-3"
+                  : pastMembersRemainder === 2 && index === lastPastMemberIndex - 1
+                    ? "md:col-start-2"
+                    : pastMembersRemainder === 2 && index === lastPastMemberIndex
+                      ? "md:col-start-4"
+                      : undefined
+              )
+            )}
+          </div>
+        </PastMembersToggle>
 
         <div className="mt-16 border-t-4 border-hiveGold w-full" />
       </Container>
