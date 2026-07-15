@@ -46,7 +46,7 @@ const teamMembers: Person[] = [
   },
   {
     name: "Sara Singergy",
-    role: "Visiting Researcher (American University of Cairo)",
+    role: "Visiting Researcher (American University in Cairo)",
     imageSrc: "/img/sara-singergy.jpeg",
     url: "https://www.linkedin.com/in/sara-elsingergy/",
   },

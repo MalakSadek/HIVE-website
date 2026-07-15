@@ -7,6 +7,8 @@ import { Container } from "./Container";
 type Activity = {
   text: string;
   href?: string;
+  monthYear: string;
+  tag: string;
 };
 
 const activities: Activity[] = [];
@@ -15,34 +17,50 @@ const DEFAULT_ACTIVITIES: Activity[] = [
   {
     text: "**Dr. Malak Sadek** delivered a talk titled 'Human Values in AI Design' as part of [Lloyd Bank's 'Leading with AI' training program](https://www.lloydsbankinggroup.com/media/press-releases/2025/lloyds-banking-group-2025/lloyds-pioneers-ai-training.html) for senior leadership.",
     href: "https://www.linkedin.com/posts/malaksadek_leadership-aistrategy-aidesign-ugcPost-7463542806314250241-ftp0?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAACdPwK4BgYoJpjX_VYdfCWS2hzGr4rozTzI",
+    monthYear: "Jun 2026",
+    tag: "Outreach",
   },
   {
     text: "The HIVE CAI Lab has three forthcoming publications at the [ACM Conference for Conversational User Interfaces (CUI 2026)](https://cui.acm.org/2026/).",
     href: "",
+    monthYear: "Jun 2026",
+    tag: "Research",
   },
   {
     text: "**Dr. Malak Sadek** was elected as **Communications Officer** for the **British Computer Society (BCS)** Interaction Specialist Group. This is the oldest and largest group of HCI academics and professionals in Europe.",
     href: "https://www.bcs.org/membership-and-registrations/member-communities/interaction-specialist-group/",
+    monthYear: "May 2026",
+    tag: "Service",
   },
   {
     text: "**HIVE CAI Lab's** publication with the **Collective Innovation Lab** at Imperial College London, 'KNIT: Computational Boundary Objects for Real-Time Convergence in Interdisciplinary Teams', at CHI 2026 has earned an **Honourable Mention**.",
     href: "https://programs.sigchi.org/chi/2026/program/content/223274",
+    monthYear: "Apr 2026",
+    tag: "Research",
   },
   {
     text: "**Afifah Kashif** presented her work ['Governance as Methodology: Toward Anticipatory, Design-Embedded Governance for HRI'](https://sites.google.com/view/interaiworkshophri2026/accepted-papers?authuser=0) at the InterAI Workshop at the [IEEE/ACM International Conference on Human-Robot Interaction (HRI 2026)](https://humanrobotinteraction.org/2026/) in Edinburgh. This was possible thanks to travel grants from [Clare College](https://www.clare.cam.ac.uk/) and the [Centre for Human-Inspired AI (CHIA)](https://chia.cam.ac.uk/).",
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7443265633196113920/",
+    monthYear: "Mar 2026",
+    tag: "Research",
   },
   {
     text: "**Dr. Malak Sadek** and **Dr. Dorian Peters** held a workshop titled ['Aligning Conversational AI with Human Values'](https://www.facebook.com/IPPAnet/videos/can-ai-truly-support-human-flourishing-it-starts-with-embedding-your-values-from/919555910537110/) at [the International Positive Psychology Association](https://ippanetwork.org/)'s ['AI and the Future of Wellbeing' Summit](https://ippasummit.vfairs.com/).",
     href: "https://www.linkedin.com/posts/dorian-peters_ai-and-the-future-of-wellbeing-navigating-share-7425463313771311104-ItVN?utm_source=share&utm_medium=member_desktop&rcm=ACoAACdPwK4BgYoJpjX_VYdfCWS2hzGr4rozTzI",
+    monthYear: "Mar 2026",
+    tag: "Outreach",
   },
   {
     text: "**Dr. Malak Sadek** and **Echo Wan** held an event at [The Cambridge Festival](https://www.festival.cam.ac.uk/) titled ['AI Facilitated Problem Solving'](https://www.festival.cam.ac.uk/events/problem-solving-more-problem-discovery-using-gamified-conversational-ai-support-collaborative) using an LLM facilitator to help members of the general public converge and solve problems together.",
     href: "https://www.linkedin.com/posts/malaksadek_yesterday-was-very-a-fulfilling-day-activity-7442605391819132928-NSO5?utm_source=share&utm_medium=member_desktop&rcm=ACoAACdPwK4BgYoJpjX_VYdfCWS2hzGr4rozTzI",
+    monthYear: "Mar 2026",
+    tag: "Outreach",
   },
   {
     text: "**Dr. Malak Sadek** was part of a panel titled ['Making AI Sound Human. Should We? And What Happens When We Do?'](https://www.linkedin.com/posts/european-chatbot-summit_edinburgh-activity-7429502405077004288-CJ1L?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAACdPwK4BgYoJpjX_VYdfCWS2hzGr4rozTzI) at [The European Chatbot and Conversational AI Summit](https://theeuropeanchatbot.org/) in Edinburgh.",
     href: "https://www.linkedin.com/posts/malaksadek_europeanchatbotsummit-ai-chatbots-activity-7441776598904819713-IcmB?utm_source=share&utm_medium=member_desktop&rcm=ACoAACdPwK4BgYoJpjX_VYdfCWS2hzGr4rozTzI",
+    monthYear: "Feb 2026",
+    tag: "Outreach",
   },
 ];
 
@@ -175,9 +193,14 @@ export function ActivitiesSection() {
                       className="object-contain"
                     />
                   </div>
-                  <p className="text-sm md:text-base text-gray-800 leading-snug">
-                    {renderActivityText(item.text)}
-                  </p>
+                  <div className="flex min-w-0 flex-1 flex-col gap-2">
+                    <p className="text-sm md:text-base text-gray-800 leading-snug">
+                      {renderActivityText(item.text)}
+                    </p>
+                    <p className="self-end text-right text-xs md:text-sm font-semibold text-gray-700">
+                      {item.monthYear} | {item.tag}
+                    </p>
+                  </div>
                 </div>
               );
             })}
