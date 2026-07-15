@@ -34,27 +34,27 @@ const teamMembers: Person[] = [
   },
   {
     name: "Eshan Varma",
-    role: "Visiting Researcher",
+    role: "Visiting Researcher (Cornell University)",
     imageSrc: "/img/eshan-varma.jpeg",
     url: "https://www.linkedin.com/in/eshanv/",
   },
   {
     name: "Ziwen Zhu",
-    role: "Visiting Researcher",
+    role: "Visiting Researcher (Northumbria University)",
     imageSrc: "/img/ziwen-zhu.jpg",
     url: "https://www.ziwendesign.com/",
+  },
+  {
+    name: "Sara Singergy",
+    role: "Visiting Researcher (American University of Cairo)",
+    imageSrc: "/img/sara-singergy.jpeg",
+    url: "https://www.linkedin.com/in/sara-elsingergy/",
   },
   {
     name: "Isabelle Kohout",
     role: "Research Assistant",
     imageSrc: "/img/isabelle.png",
     url: "https://www.linkedin.com/in/isabellekohout/",
-  },
-  {
-    name: "Sara Singergy",
-    role: "Research Assistant",
-    imageSrc: "/img/sara-singergy.jpeg",
-    url: "https://www.linkedin.com/in/sara-elsingergy/",
   },
   {
     name: "Anshul Sinha",
