@@ -1,13 +1,61 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { type ReactNode, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Container } from "./Container";
+
+type ResearchSectionConfig = {
+  id: string;
+  title: string;
+  description: string;
+  publications: {
+    year: number;
+    hasAward?: boolean;
+  }[];
+  originalOrder: number;
+  isOpen: boolean;
+  toggle: () => void;
+  content: ReactNode;
+};
+
+function getSectionSortMeta(section: ResearchSectionConfig) {
+  const latestPublicationYear = Math.max(
+    ...section.publications.map((publication) => publication.year)
+  );
+
+  return {
+    latestPublicationYear,
+    hasAwardAtLatestYear: section.publications.some(
+      (publication) =>
+        publication.year === latestPublicationYear && publication.hasAward
+    ),
+  };
+}
+
+function orderResearchSections(sections: ResearchSectionConfig[]) {
+  return [...sections].sort((a, b) => {
+    const aMeta = getSectionSortMeta(a);
+    const bMeta = getSectionSortMeta(b);
+
+    if (aMeta.latestPublicationYear !== bMeta.latestPublicationYear) {
+      return bMeta.latestPublicationYear - aMeta.latestPublicationYear;
+    }
+
+    if (aMeta.hasAwardAtLatestYear !== bMeta.hasAwardAtLatestYear) {
+      return (
+        Number(bMeta.hasAwardAtLatestYear) -
+        Number(aMeta.hasAwardAtLatestYear)
+      );
+    }
+
+    return a.originalOrder - b.originalOrder;
+  });
+}
 
 export function ResearchPathways() {
   const [isValueVizOpen, setIsValueVizOpen] = useState(false);
   const [isCoDesignOpen, setIsCoDesignOpen] = useState(false);
-  const [isLivingValuesBox1Open, setIsLivingValuesBox1Open] = useState(false);
+  const [isPractitionersOpen, setIsPractitionersOpen] = useState(false);
   const [isLivingValuesBox2Open, setIsLivingValuesBox2Open] = useState(false);
   const [isLivingValuesBox3Open, setIsLivingValuesBox3Open] = useState(false);
 
@@ -76,9 +124,468 @@ export function ResearchPathways() {
   }, [
     isValueVizOpen,
     isCoDesignOpen,
-    isLivingValuesBox1Open,
+    isPractitionersOpen,
     isLivingValuesBox2Open,
     isLivingValuesBox3Open,
+  ]);
+
+  const renderResearchSection = (section: ResearchSectionConfig, index: number) => (
+    <div key={section.id} className="relative border border-gray-300 rounded-md bg-white/60 p-4">
+      <button
+        type="button"
+        aria-label={section.isOpen ? "Collapse section" : "Expand section"}
+        aria-expanded={section.isOpen}
+        onClick={section.toggle}
+        className="absolute right-3 top-3 rounded p-1 text-black hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
+      >
+        <svg
+          viewBox="0 0 20 20"
+          aria-hidden="true"
+          className={`h-4 w-4 transition-transform ${
+            section.isOpen ? "rotate-0" : "-rotate-90"
+          }`}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 7l5 6 5-6" />
+        </svg>
+      </button>
+
+      <div className="pr-8">
+        <h4 className="text-sm md:text-base font-semibold text-hiveDark">
+          {index + 1}. {section.title}
+        </h4>
+        <p className="mt-1 text-xs md:text-sm text-gray-700">
+          {section.description}
+        </p>
+      </div>
+
+      {section.isOpen ? (
+        <div className="mt-3 space-y-3">
+          <p className="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-gray-700">
+            Selected Work
+          </p>
+          {section.content}
+        </div>
+      ) : null}
+    </div>
+  );
+
+  const livingSections = orderResearchSections([
+    {
+      id: "literacy",
+      title: "Conversational AI Literacy & User Agency",
+      description:
+        "Helping people understand, evaluate, and steer conversational AI behaviours.",
+      publications: [
+        { year: 2025 },
+        { year: 2023, hasAward: true },
+      ],
+      originalOrder: 1,
+      isOpen: isLivingValuesBox3Open,
+      toggle: () => setIsLivingValuesBox3Open((v) => !v),
+      content: (
+        <>
+          <a
+            href="https://academic.oup.com/iwc/article/37/5/444/7717778"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                Interacting with Computers (2025)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Codesigning AI with End-Users: An AI Literacy Toolkit for Nontechnical Audiences
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Smith, F., Sadek, M., Wan, E., Ito, A., & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              Understanding the impact of an AI literacy toolkit on end-users&apos; participation in co-designing AI systems.
+            </p>
+          </a>
+
+          <a
+            href="https://www.scienceopen.com/hosted-document?doi=10.14236/ewic/BCSHCI2023.2"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                BCS HCI (2023)
+              </p>
+              <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
+                Best Paper Award
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Empowering End-users in Co-Designing AI: An AI Literacy Card-Based Toolkit for Non-Technical Audiences
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Smith, F., Sadek, M. & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              Creating a toolkit to be used by AI practitioners when collaborating with users to design AI systems that can improve users&apos; AI literacy and help them participate meaningfully.
+            </p>
+          </a>
+
+          <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
+            </div>
+            <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
+              Developing an LLM literacy toolkit for the general public.
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Investigators: Abdulsalam, A., Petti, U. & Sadek, M.
+            </p>
+          </div>
+        </>
+      ),
+    },
+    {
+      id: "impacts",
+      title: "The Impacts of Conversational AI Values on Users",
+      description:
+        "Understanding how diverse users perceive, interact with, and are impacted by the values in conversational AI systems.",
+      publications: [{ year: 2024 }],
+      originalOrder: 2,
+      isOpen: isLivingValuesBox2Open,
+      toggle: () => setIsLivingValuesBox2Open((v) => !v),
+      content: (
+        <>
+          <a
+            href="https://aiequalitytoolbox.com/wp-content/uploads/2023/12/Chapter-1_-Who-Defines-AIs-Future_-The-Role-of-Harmful-AI-Narratives-.docx.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                AI & Equality (2024)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Who Defines AI’s Future? The Role of Harmful AI Narratives
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Kallina, E. & Sadek, M.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              Exploring how prevalent AI narratives shape public perceptions of AI, as well as the AI industry itself.
+            </p>
+          </a>
+
+          <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
+            </div>
+            <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
+              Critically examining value-sensitive design frameworks and practices across several factors such as global applicability, accounting for demographic diversity, and empirical measurement.
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Investigators: Sadek, M., Sinha, A.K., van der Maden, W., Wan, E., Mougenot, C., Axelsson, M.
+            </p>
+          </div>
+        </>
+      ),
+    },
+  ]);
+
+  const shapingSections = orderResearchSections([
+    {
+      id: "practitioners",
+      title: "Practitioners’ Work with Values",
+      description:
+        "Understanding how AI practitioners conceptualise and operationalise values in their work.",
+      publications: [
+        { year: 2026 },
+        { year: 2025 },
+        { year: 2024 },
+        { year: 2024 },
+        { year: 2023 },
+      ],
+      originalOrder: 1,
+      isOpen: isPractitionersOpen,
+      toggle: () => setIsPractitionersOpen((v) => !v),
+      content: (
+        <>
+          <a
+            href="https://pure.itu.dk/da/publications/results-actionability-gap-understanding-how-practitioners-evaluat/"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                CHI (2026)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Results-Actionability Gap: Understanding How Practitioners Evaluate LLM Products in the Wild
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              van der Maden, W., Sadek, M., Xiao, Z., Mottelson, A., Liao, Q.V. & Zhu, J.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              An interview study with practitioners to understand how they evaluate LLM products in the wild and the challenges they face.
+            </p>
+          </a>
+
+          <a
+            href="https://www.tandfonline.com/doi/full/10.1080/10447318.2024.2439021"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                International Journal of Human–Computer Interaction (2025)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Challenges in Value-Sensitive AI Design: Insights from AI Practitioner Interviews
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Sadek, M. & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              An interview study with AI practitioners to understand how they conceptualise and operationalise values in their work.
+            </p>
+          </a>
+
+          <a
+            href="https://link.springer.com/article/10.1007/s00146-024-01880-9"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                AI & Society (2024)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Challenges of responsible AI in practice: scoping review and recommended actions
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Sadek, M., Kallina, E., Bohné, T., Mougenot, C., Calvo, R.A. & Cave, S.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              A review of how responsible AI struggles to operationalise its principles in practice with recommendations for best practices.
+            </p>
+          </a>
+
+          <a
+            href="https://ieeexplore.ieee.org/abstract/document/10532140"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                IEEE Technology and Society (2024)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Closing the Socio–Technical Gap in AI: The Need for Measuring Practitioners’ Attitudes and Perceptions
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Sadek, M., Calvo, R.A. & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              A call for more empirical research on the attitudes and perceptions of AI practitioners towards responsible AI.
+            </p>
+          </a>
+
+          <a
+            href="https://dl.acm.org/doi/abs/10.1145/3571884.3597143"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                CUI (2023)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Trends, Challenges and Processes in Conversational Agent Design: Exploring Practitioners’ Views through Semi-Structured Interviews
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Sadek, M., Calvo, R.A. & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              An interview study with conversational AI practitioners to understand their thoughts and experiences with the latest developments in the field.
+            </p>
+          </a>
+
+          <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
+            </div>
+            <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
+              Understanding which values have been traditionally embedded and measured in AI systems.
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Investigators: Sinha, A.K., van der Maden, W., Axelsson, M. & Sadek, M.
+            </p>
+          </div>
+        </>
+      ),
+    },
+    {
+      id: "value-visualisation",
+      title: "Value Visualisation & Customisation",
+      description:
+        "Toolkits and interfaces for designing and building more value-sensitive conversational AI systems.",
+      publications: [{ year: 2024 }],
+      originalOrder: 2,
+      isOpen: isValueVizOpen,
+      toggle: () => setIsValueVizOpen((v) => !v),
+      content: (
+        <>
+          <a
+            href="https://dl.acm.org/doi/full/10.1145/3613904.3642810"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                CHI (2024)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Guidelines for integrating value-sensitive design in responsible AI toolkits
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Sadek, M., Constantinides, M., Quercia, D. & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              Understanding how responsible AI toolkits can better support designing with human values in mind.
+            </p>
+          </a>
+
+          <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
+            </div>
+            <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
+              Exploring alternative ways for communicating and interacting with conversational AI values, such as interactive visualisations and prompting techniques.
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Investigators: Sadek, M., Peters, D., Huang, Q.F, Bogucka, E., Hu, S., Kohout, I., Desai, S.
+            </p>
+          </div>
+        </>
+      ),
+    },
+    {
+      id: "co-design",
+      title: "Co-Design for Human-Centred Applications of Conversational AI",
+      description:
+        "Designing with others to build and evaluate human-centred conversational AI systems.",
+      publications: [
+        { year: 2026, hasAward: true },
+        { year: 2023 },
+        { year: 2023 },
+      ],
+      originalOrder: 3,
+      isOpen: isCoDesignOpen,
+      toggle: () => setIsCoDesignOpen((v) => !v),
+      content: (
+        <>
+          <a
+            href=""
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                CHI (2026)
+              </p>
+              <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
+                Honourable Mention
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              KNIT: Computational Boundary Objects for Real-Time Convergence in Interdisciplinary Teams
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Wan, E., Yin, C., Ito, A., Gao, Z., Jia, J., Taoka, Y., Saito, S., Sadek, M., & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              Developing an LLM-enhanced system that transforms AI-generated value proposition statements into boundary objects to help interdisciplinary teams converge during problem solving.
+            </p>
+          </a>
+
+          <a
+            href="https://www.sciencedirect.com/science/article/pii/S0142694X23000716"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                Design Studies (2023)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Co-designing conversational agents: A comprehensive review and recommendations for best practices
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Sadek, M., Calvo, R.A. & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              A systematic review and best practices for how to collaboratively design conversational AI systems with stakeholders.
+            </p>
+          </a>
+
+          <a
+            href="https://link.springer.com/article/10.1007/s43681-023-00373-7"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                AI and Ethics (2023)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Designing value-sensitive AI: a critical review and recommendations for socio-technical design processes
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Sadek, M., Calvo, R.A. & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              Reviewing how existing academic and industry-based design processes for AI systems support value-sensitive practices.
+            </p>
+          </a>
+
+          <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
+            </div>
+            <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
+              Exploring human-centred AI applications to support collaborative tasks such as problem solving and learning.
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Investigators: Wang, Q.S., Axelsson, M., Wan, E., Sadek, M., Mougenot, C.
+            </p>
+          </div>
+        </>
+      ),
+    },
   ]);
 
   return (
@@ -211,350 +718,7 @@ export function ResearchPathways() {
               </div>
             </div>
             <div className="mt-4 space-y-4">
-              <div className="relative border border-gray-300 rounded-md bg-white/60 p-4">
-                <button
-                  type="button"
-                  aria-label={isLivingValuesBox1Open ? "Collapse section" : "Expand section"}
-                  aria-expanded={isLivingValuesBox1Open}
-                  onClick={() => setIsLivingValuesBox1Open((v) => !v)}
-                  className="absolute right-3 top-3 rounded p-1 text-black hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-                >
-                  <svg
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                    className={`h-4 w-4 transition-transform ${
-                      isLivingValuesBox1Open ? "rotate-0" : "-rotate-90"
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 7l5 6 5-6" />
-                  </svg>
-                </button>
-
-                <div className="pr-8">
-                  <h4 className="text-sm md:text-base font-semibold text-hiveDark">
-                    1. Practitioners’ Work with Values
-                  </h4>
-                  <p className="mt-1 text-xs md:text-sm text-gray-700">
-                  Understanding how AI practitioners conceptualise and operationalise values in their work.
-                  </p>
-                </div>
-
-                {isLivingValuesBox1Open ? (
-                  <div className="mt-3 space-y-3">
-                    <p className="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-gray-700">
-                      Selected Work
-                    </p>
-
-                    <a
-                    href="https://pure.itu.dk/da/publications/results-actionability-gap-understanding-how-practitioners-evaluat/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                  >
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                      CHI (2026)
-                      </p>
-                    </div>
-                    <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                    Results-Actionability Gap: Understanding How Practitioners Evaluate LLM Products in the Wild
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                    van der Maden, W., Sadek, M., Xiao, Z., Mottelson, A., Liao, Q.V. & Zhu, J.
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm text-gray-700">
-                    An interview study with practitioners to understand how they evaluate LLM products in the wild and the challenges they face.
-                    </p>
-                  </a>
-
-                    <a
-                      href="https://www.tandfonline.com/doi/full/10.1080/10447318.2024.2439021"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                        International Journal of Human–Computer Interaction (2025)
-                        </p>
-                      </div>
-                      <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                      Challenges in Value-Sensitive AI Design: Insights from AI Practitioner Interviews
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Sadek, M. & Mougenot, C.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm text-gray-700">
-                        An interview study with AI practitioners to understand how they conceptualise and operationalise values in their work.
-                      </p>
-                    </a>
-
-                    <a
-                      href="https://link.springer.com/article/10.1007/s00146-024-01880-9"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                          AI & Society (2024)
-                        </p>
-                      </div>
-                      <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                      Challenges of responsible AI in practice: scoping review and recommended actions
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Sadek, M., Kallina, E., Bohné, T., Mougenot, C., Calvo, R.A. & Cave, S.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm text-gray-700">
-                        A review of how responsible AI struggles to operationalise its principles in practice with recommendations for best practices.
-                      </p>
-                    </a>
-
-                    <a
-                      href="https://ieeexplore.ieee.org/abstract/document/10532140"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                          IEEE Technology and Society (2024)
-                        </p>
-                      </div>
-                      <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                      Closing the Socio–Technical Gap in AI: The Need for Measuring Practitioners’ Attitudes and Perceptions
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Sadek, M., Calvo, R.A. & Mougenot, C.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm text-gray-700">
-                        A call for more empirical research on the attitudes and perceptions of AI practitioners towards responsible AI.
-                      </p>
-                    </a>
-
-                    <a
-                      href="https://dl.acm.org/doi/abs/10.1145/3571884.3597143"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                          CUI (2023)
-                        </p>
-                      </div>
-                      <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                      Trends, Challenges and Processes in Conversational Agent Design: Exploring Practitioners’ Views through Semi-Structured Interviews
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Sadek, M., Calvo, R.A. & Mougenot, C.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm text-gray-700">
-                        An interview study with conversational AI practitioners to understand their thoughts and experiences with the latest developments in the field.
-                      </p>
-                    </a>
-
-                    <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
-                      </div>
-                      <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                        Understanding which values have been traditionally embedded and measured in AI systems.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Investigators: Sinha, A.K., van der Maden, W., Axelsson, M. & Sadek, M.
-                      </p>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-
-              <div className="relative border border-gray-300 rounded-md bg-white/60 p-4">
-                <button
-                  type="button"
-                  aria-label={isLivingValuesBox3Open ? "Collapse section" : "Expand section"}
-                  aria-expanded={isLivingValuesBox3Open}
-                  onClick={() => setIsLivingValuesBox3Open((v) => !v)}
-                  className="absolute right-3 top-3 rounded p-1 text-black hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-                >
-                  <svg
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                    className={`h-4 w-4 transition-transform ${
-                      isLivingValuesBox3Open ? "rotate-0" : "-rotate-90"
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 7l5 6 5-6" />
-                  </svg>
-                </button>
-
-                <div className="pr-8">
-                  <h4 className="text-sm md:text-base font-semibold text-hiveDark">
-                    2. Conversational AI Literacy & User Agency
-                  </h4>
-                  <p className="mt-1 text-xs md:text-sm text-gray-700">
-                  Helping people understand, evaluate, and steer conversational AI behaviours.
-                  </p>
-                </div>
-
-                {isLivingValuesBox3Open ? (
-                  <div className="mt-3 space-y-3">
-                    <p className="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-gray-700">
-                      Selected Work
-                    </p>
-
-                    <a
-                      href="https://academic.oup.com/iwc/article/37/5/444/7717778"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                          Interacting with Computers (2025)
-                        </p>
-                      </div>
-                      <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                      Codesigning AI with End-Users: An AI Literacy Toolkit for Nontechnical Audiences
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Smith, F., Sadek, M., Wan, E., Ito, A., & Mougenot, C.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm text-gray-700">
-                        Understanding the impact of an AI literacy toolkit on end-users&apos; participation in co-designing AI systems.
-                        </p>
-                    </a>
-
-                     <a
-                      href="https://www.scienceopen.com/hosted-document?doi=10.14236/ewic/BCSHCI2023.2"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                          BCS HCI (2023)
-                        </p>
-                        <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
-                          Best Paper Award
-                        </p>
-                      </div>
-                      <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                      Empowering End-users in Co-Designing AI: An AI Literacy Card-Based Toolkit for Non-Technical Audiences
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Smith, F., Sadek, M. & Mougenot, C.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm text-gray-700">
-                      Creating a toolkit to be used by AI practitioners when collaborating with users to design AI systems that can improve users&apos; AI literacy and help them participate meaningfully.
-                      </p>
-                    </a>
-
-                    <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
-                      </div>
-                      <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                        Developing an LLM literacy toolkit for the general public.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Investigators: Abdulsalam, A., Petti, U. & Sadek, M.
-                      </p>
-                    </div> 
-                  </div>
-                ) : null}
-              </div>
-
-
-              <div className="relative border border-gray-300 rounded-md bg-white/60 p-4">
-                <button
-                  type="button"
-                  aria-label={isLivingValuesBox2Open ? "Collapse section" : "Expand section"}
-                  aria-expanded={isLivingValuesBox2Open}
-                  onClick={() => setIsLivingValuesBox2Open((v) => !v)}
-                  className="absolute right-3 top-3 rounded p-1 text-black hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-                >
-                  <svg
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                    className={`h-4 w-4 transition-transform ${
-                      isLivingValuesBox2Open ? "rotate-0" : "-rotate-90"
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 7l5 6 5-6" />
-                  </svg>
-                </button>
-
-                <div className="pr-8">
-                  <h4 className="text-sm md:text-base font-semibold text-hiveDark">
-                    3. The Impacts of Conversational AI Values on Users
-                  </h4>
-                  <p className="mt-1 text-xs md:text-sm text-gray-700">
-                  Understanding how diverse users perceive, interact with, and are impacted by the values in conversational AI systems.
-                  </p>
-                </div>
-
-                {isLivingValuesBox2Open ? (
-                  <div className="mt-3 space-y-3">
-                    <p className="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-gray-700">
-                      Selected Work
-                    </p>
-
-                    <a
-                      href="https://aiequalitytoolbox.com/wp-content/uploads/2023/12/Chapter-1_-Who-Defines-AIs-Future_-The-Role-of-Harmful-AI-Narratives-.docx.pdf"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                          AI & Equality (2024)
-                        </p>
-                      </div>
-                      <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                      Who Defines AI’s Future? The Role of Harmful AI Narratives
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Kallina, E. & Sadek, M.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm text-gray-700">
-                        Exploring how prevalent AI narratives shape public perceptions of AI, as well as the AI industry itself.
-                        </p>
-                    </a>
-
-                    <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
-                      </div>
-                      <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                        Critically examining value-sensitive design frameworks and practices across several factors such as global applicability, accounting for demographic diversity, and empirical measurement.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Investigators: Sadek, M., Sinha, A.K., van der Maden, W., Wan, E., Mougenot, C., Axelsson, M.
-                      </p>
-        
-                    </div> 
-
-                  </div>
-                ) : null}
-              </div>
-
+              {livingSections.map(renderResearchSection)}
             </div>
           </div>
 
@@ -582,209 +746,7 @@ export function ResearchPathways() {
               </div>
             </div>
             <div className="mt-4 space-y-4">
-              <div className="relative border border-gray-300 rounded-md bg-white/60 p-4">
-                <button
-                  type="button"
-                  aria-label={isValueVizOpen ? "Collapse section" : "Expand section"}
-                  aria-expanded={isValueVizOpen}
-                  onClick={() => setIsValueVizOpen((v) => !v)}
-                  className="absolute right-3 top-3 rounded p-1 text-black hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-                >
-                  <svg
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                    className={`h-4 w-4 transition-transform ${
-                      isValueVizOpen ? "rotate-0" : "-rotate-90"
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 7l5 6 5-6" />
-                  </svg>
-                </button>
-
-                <div className="pr-8">
-                  <h4 className="text-sm md:text-base font-semibold text-hiveDark">
-                    1. Value Visualisation &amp; Customisation
-                  </h4>
-                  <p className="mt-1 text-xs md:text-sm text-gray-700">
-                    Toolkits and interfaces for designing and building more value-sensitive conversational AI systems.
-                  </p>
-                </div>
-
-                {isValueVizOpen ? (
-                  <div className="mt-3 space-y-3">
-                    <p className="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-gray-700">
-                      Selected Work
-                    </p>
-                  <a
-                    href="https://dl.acm.org/doi/full/10.1145/3613904.3642810"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                  >
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                      CHI (2024)
-                      </p>
-                    </div>
-                    <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                    Guidelines for integrating value-sensitive design in responsible AI toolkits
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                      Sadek, M., Constantinides, M., Quercia, D. & Mougenot, C.
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm text-gray-700">
-                      Understanding how responsible AI toolkits can better support designing with human values in mind.
-                    </p>
-                  </a>
-
-                  <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
-                    </div>
-                    <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                      Exploring alternative ways for communicating and interacting with conversational AI values, such as interactive visualisations and prompting techniques.
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                      Investigators: Sadek, M., Peters, D., Huang, Q.F, Bogucka, E., Hu, S., Kohout, I., Desai, S.
-                    </p>
-                   
-                  </div>
-
-                </div>
-                ) : null}
-              </div>
-
-          
-
-              <div className="relative border border-gray-300 rounded-md bg-white/60 p-4">
-                <button
-                  type="button"
-                  aria-label={isCoDesignOpen ? "Collapse section" : "Expand section"}
-                  aria-expanded={isCoDesignOpen}
-                  onClick={() => setIsCoDesignOpen((v) => !v)}
-                  className="absolute right-3 top-3 rounded p-1 text-black hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-                >
-                  <svg
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                    className={`h-4 w-4 transition-transform ${
-                      isCoDesignOpen ? "rotate-0" : "-rotate-90"
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 7l5 6 5-6" />
-                  </svg>
-                </button>
-
-                <div className="pr-8">
-                  <h4 className="text-sm md:text-base font-semibold text-hiveDark">
-                    2. Co-Design for Human-Centred Applications of Conversational AI
-                  </h4>
-                  <p className="mt-1 text-xs md:text-sm text-gray-700">
-                    Designing with others to build and evaluate human-centred conversational AI systems.
-                  </p>
-                </div>
-
-                {isCoDesignOpen ? (
-                  <div className="mt-3 space-y-3">
-                    <p className="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-gray-700">
-                      Selected Work
-                    </p>
-                  
-                    <a
-                      href=""
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                          CHI (2026)
-                        </p>
-                        <p className="text-sm font-semibold uppercase tracking-wide text-green-600">
-                          Honourable Mention
-                        </p>
-                      </div>
-                      <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                      KNIT: Computational Boundary Objects for Real-Time Convergence in Interdisciplinary Teams
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                        Wan, E., Yin, C., Ito, A., Gao, Z., Jia, J., Taoka, Y., Saito, S., Sadek, M., & Mougenot, C.
-                      </p>
-                      <p className="mt-2 text-xs md:text-sm text-gray-700">
-                      Developing an LLM-enhanced system that transforms AI-generated value proposition statements into boundary objects to help interdisciplinary teams converge during problem solving.
-                      </p>
-                    </a>
-
-                  <a
-                    href="https://www.sciencedirect.com/science/article/pii/S0142694X23000716"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                  >
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                      Design Studies (2023)
-                      </p>
-                    </div>
-                    <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                    Co-designing conversational agents: A comprehensive review and recommendations for best practices
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                      Sadek, M., Calvo, R.A. & Mougenot, C.
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm text-gray-700">
-                    A systematic review and best practices for how to collaboratively design conversational AI systems with stakeholders.
-                    </p>
-                  </a>
-
-                  <a
-                    href="https://link.springer.com/article/10.1007/s43681-023-00373-7"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
-                  >
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
-                      AI and Ethics (2023)
-                      </p>
-                    </div>
-                    <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
-                    Designing value-sensitive AI: a critical review and recommendations for socio-technical design processes
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                      Sadek, M., Calvo, R.A. & Mougenot, C.
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm text-gray-700">
-                    Reviewing how existing academic and industry-based design processes for AI systems support value-sensitive practices.
-                    </p>
-                  </a>
-
-                  <div className="block rounded-md border border-gray-200 bg-white/90 p-3">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold text-orange-600">Future Research Agenda</p>
-                    </div>
-                    <p className="mt-1 text-sm md:text-base font-semibold text-hiveDark">
-                      Exploring human-centred AI applications to support collaborative tasks such as problem solving and learning.
-                    </p>
-                    <p className="mt-2 text-xs md:text-sm italic text-gray-700">
-                     Investigators: Wang, Q.S., Axelsson, M., Wan, E., Sadek, M., Mougenot, C.
-                    </p>
-
-                  </div>
-
-                </div>
-                ) : null}
-              </div>
+              {shapingSections.map(renderResearchSection)}
             </div>
           </div>
         </div>
@@ -827,4 +789,3 @@ export function ResearchPathways() {
     </section>
   );
 }
-
