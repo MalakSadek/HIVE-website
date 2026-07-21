@@ -181,6 +181,7 @@ export function ResearchPathways() {
       description:
         "Helping people understand, evaluate, and steer conversational AI behaviours.",
       publications: [
+        { year: 2026 },
         { year: 2025 },
         { year: 2023, hasAward: true },
       ],
@@ -189,6 +190,28 @@ export function ResearchPathways() {
       toggle: () => setIsLivingValuesBox3Open((v) => !v),
       content: (
         <>
+          <a
+            href="https://dl.acm.org/doi/10.1145/3816046.3816300"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                CUI (2026)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Using Anti-Values as Conversational AI Design Constraints: Deciding on What We Shouldn&apos;t Build
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Sadek, M. & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              Utilising interdisciplinary lenses to explore anti-values as design constrains and how this reframes conversational AI design.
+            </p>
+          </a>
+
           <a
             href="https://academic.oup.com/iwc/article/37/5/444/7717778"
             target="_blank"
@@ -255,12 +278,34 @@ export function ResearchPathways() {
       title: "The Impacts of Conversational AI Values on Users",
       description:
         "Understanding how diverse users perceive, interact with, and are impacted by the values in conversational AI systems.",
-      publications: [{ year: 2024 }],
+      publications: [{ year: 2026 }, { year: 2024 }],
       originalOrder: 2,
       isOpen: isLivingValuesBox2Open,
       toggle: () => setIsLivingValuesBox2Open((v) => !v),
       content: (
         <>
+          <a
+            href="https://dl.acm.org/doi/10.1145/3816046.3816265"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                CUI (2026)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              Whose Values? Demographic Influences on Perceptions of Conversational AI Value Alignment
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Sadek, M. & Mougenot, C.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              Measuring the impact of users&apos; demographic attributes on their perception of chatbots&apos; value alignment.
+            </p>
+          </a>
+
           <a
             href="https://aiequalitytoolbox.com/wp-content/uploads/2023/12/Chapter-1_-Who-Defines-AIs-Future_-The-Role-of-Harmful-AI-Narratives-.docx.pdf"
             target="_blank"
@@ -495,6 +540,7 @@ export function ResearchPathways() {
         "Designing with others to build and evaluate human-centred conversational AI systems.",
       publications: [
         { year: 2026, hasAward: true },
+        { year: 2026 },
         { year: 2023 },
         { year: 2023 },
       ],
@@ -525,6 +571,28 @@ export function ResearchPathways() {
             </p>
             <p className="mt-2 text-xs md:text-sm text-gray-700">
               Developing an LLM-enhanced system that transforms AI-generated value proposition statements into boundary objects to help interdisciplinary teams converge during problem solving.
+            </p>
+          </a>
+
+          <a
+            href="https://dl.acm.org/doi/10.1145/3816046.3816292"
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-gray-600">
+                CUI (2026)
+              </p>
+            </div>
+            <p className="mt-2 text-sm md:text-base font-semibold text-hiveDark">
+              KNIT-C: Exploring Conversational AI Facilitation of Group Convergence Through Computational Boundary Objects
+            </p>
+            <p className="mt-2 text-xs md:text-sm italic text-gray-700">
+              Wan, E., Mougenot, C. & Sadek, M.
+            </p>
+            <p className="mt-2 text-xs md:text-sm text-gray-700">
+              Extending the KNIT framework with a conversational interface and a general audience setting.
             </p>
           </a>
 
