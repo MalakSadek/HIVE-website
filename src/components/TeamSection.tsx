@@ -234,7 +234,7 @@ export function TeamSection() {
         href={person.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="block relative w-40 h-36 md:w-44 md:h-40 lg:w-48 lg:h-44 overflow-hidden bg-hiveGray hexagon mb-3 text-hiveDark hover:text-hiveGold hover:opacity-95"
+        className="block relative w-28 h-24 sm:w-40 sm:h-36 md:w-44 md:h-40 lg:w-48 lg:h-44 overflow-hidden bg-hiveGray hexagon mb-3 text-hiveDark hover:text-hiveGold hover:opacity-95"
         aria-label={`Open LinkedIn profile for ${person.name}`}
       >
         {person.imageSrc ? (
@@ -242,7 +242,7 @@ export function TeamSection() {
             src={person.imageSrc}
             alt={person.name}
             fill
-            sizes="(max-width: 1024px) 40vw, 192px"
+            sizes="(max-width: 639px) 112px, (max-width: 1024px) 40vw, 192px"
             className="object-cover"
             style={{ objectPosition: "50% 30%" }}
             priority={index < 2}
@@ -265,7 +265,7 @@ export function TeamSection() {
       </a>
     ) : (
       <div
-        className="relative w-40 h-36 md:w-44 md:h-40 lg:w-48 lg:h-44 overflow-hidden bg-hiveGray hexagon mb-3"
+        className="relative w-28 h-24 sm:w-40 sm:h-36 md:w-44 md:h-40 lg:w-48 lg:h-44 overflow-hidden bg-hiveGray hexagon mb-3"
         aria-hidden="true"
       >
         {person.imageSrc ? (
@@ -273,7 +273,7 @@ export function TeamSection() {
             src={person.imageSrc}
             alt={person.name}
             fill
-            sizes="(max-width: 1024px) 40vw, 192px"
+            sizes="(max-width: 639px) 112px, (max-width: 1024px) 40vw, 192px"
             className="object-cover"
             style={{ objectPosition: "50% 30%" }}
             priority={index < 2}
@@ -323,7 +323,7 @@ export function TeamSection() {
           Team
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-10 mb-16">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-6 mb-16">
           {(teamMembers.length ? teamMembers : new Array(3).fill(null)).map(
             (person, index) =>
               renderPerson(
@@ -344,7 +344,7 @@ export function TeamSection() {
           Collaborators
         </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-10 mb-0">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-6 mb-0">
           {(
             collaborators.length ? collaborators : new Array(3).fill(null)
           ).map((person, index) =>
@@ -363,7 +363,7 @@ export function TeamSection() {
         </div>
 
         <div className="mt-12">
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 xl:hidden">
+          <div className="grid grid-cols-2 items-center justify-items-center gap-x-6 gap-y-8 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-12 xl:hidden">
             {collaboratorInstitutions.map((institution) => (
               <a
                 key={institution.src}
@@ -426,7 +426,7 @@ export function TeamSection() {
         <PastMembersToggle>
           <div
             id="past-members-and-collaborators"
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-10 mb-0"
+            className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-6 mb-0"
           >
             {(
               pastMembersAndCollaborators.length
