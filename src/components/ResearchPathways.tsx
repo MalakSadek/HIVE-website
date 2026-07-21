@@ -504,7 +504,7 @@ export function ResearchPathways() {
       content: (
         <>
           <a
-            href=""
+            href="https://dl.acm.org/doi/full/10.1145/3772318.3791921"
             target="_blank"
             rel="noreferrer"
             className="block rounded-md border border-gray-200 bg-white/90 p-3 hover:border-hiveDark hover:bg-white transition-colors"
