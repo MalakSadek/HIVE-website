@@ -139,7 +139,7 @@ const collaborators: Person[] = [
   },
   {
     name: "Dr. Minja Axelsson",
-    role: "Postdoctoral Research & Teaching Fellow, University of Cambridge",
+    role: "Assistant Professor, Heriot-Watt University",
     imageSrc: "/img/minja.jpg",
     url: "https://www.linkedin.com/in/minjaaxelsson/",
   },
@@ -210,6 +210,11 @@ const collaboratorInstitutions: Institution[] = [
     src: "/img/auc-logo.png",
     alt: "The American University in Cairo",
     url: "https://www.aucegypt.edu/",
+  },
+  {
+    src: "/img/heriot-watt-logo.png",
+    alt: "Heriot-Watt University",
+    url: "https://www.hw.ac.uk/",
   },
 ];
 
@@ -389,7 +394,7 @@ export function TeamSection() {
             {[
               { items: collaboratorInstitutions.slice(0, 4), width: "w-full", columns: "grid-cols-4" },
               { items: collaboratorInstitutions.slice(4, 8), width: "w-full", columns: "grid-cols-4" },
-              { items: collaboratorInstitutions.slice(8, 11), width: "w-3/4", columns: "grid-cols-3" },
+              { items: collaboratorInstitutions.slice(8, 12), width: "w-full", columns: "grid-cols-4" },
             ].map((row, rowIndex) => (
               <div
                 key={rowIndex}
