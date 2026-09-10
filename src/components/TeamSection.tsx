@@ -39,10 +39,10 @@ const teamMembers: Person[] = [
     url: "https://www.linkedin.com/in/eshanv/",
   },
   {
-    name: "Ziwen Zhu",
-    role: "Visiting Researcher (Northumbria University)",
-    imageSrc: "/img/ziwen-zhu.jpg",
-    url: "https://www.ziwendesign.com/",
+    name: "Dmytro Zhuk",
+    role: "Visiting Researcher (University of Vienna)",
+    imageSrc: "/img/dmytro.jpg",
+    url: "https://www.linkedin.com/in/dmytro-zhuk/?locale=de",
   },
   {
     name: "Sara Singergy",
@@ -55,42 +55,6 @@ const teamMembers: Person[] = [
     role: "Research Assistant",
     imageSrc: "/img/isabelle.png",
     url: "https://www.linkedin.com/in/isabellekohout/",
-  },
-  {
-    name: "Anshul Sinha",
-    role: "Research Assistant",
-    imageSrc: "/img/anshul.jpg",
-    url: "https://www.linkedin.com/in/anshulkks/",
-  },
-  {
-    name: "Qian Shu (Helen) Wang",
-    role: "MPhil Student",
-    imageSrc: "/img/helen.jpg",
-    url: "https://www.linkedin.com/in/helen-wang-cambridge/",
-  },
-  {
-    name: "Afifah Kashif",
-    role: "MPhil Student",
-    imageSrc: "/img/afifah.JPG",
-    url: "https://www.linkedin.com/in/afifah-k/",
-  },
-  {
-    name: "Amirat Abdulsalam",
-    role: "MPhil Student",
-    imageSrc: "/img/amirat.jpg",
-    url: "https://www.mastercardfoundation.fund.cam.ac.uk/staff/amirat-abdulsalam",
-  },
-  {
-    name: "Qingfeng Huang",
-    role: "MPhil Student",
-    imageSrc: "/img/qingfeng.jpg",
-    url: "https://www.linkedin.com/in/qingfeng-huang/",
-  },
-  {
-    name: "Sydney Nguyen",
-    role: "MPhil Student",
-    imageSrc: "/img/sydney.jpg",
-    url: "https://www.linkedin.com/in/sydney-nguyen-7329441b1/",
   },
 ];
 
@@ -163,6 +127,48 @@ const pastMembersAndCollaborators: Person[] = [
     role: "Design Researcher & Lecturer, University of St Andrews",
     imageSrc: "/img/loraine.jpg",
     url: "https://www.st-andrews.ac.uk/computer-science/people/lec24/",
+  },
+  {
+    name: "Ziwen Zhu",
+    role: "Visiting Researcher (Northumbria University)",
+    imageSrc: "/img/ziwen-zhu.jpg",
+    url: "https://www.ziwendesign.com/",
+  },
+  {
+    name: "Anshul Sinha",
+    role: "Research Assistant",
+    imageSrc: "/img/anshul.jpg",
+    url: "https://www.linkedin.com/in/anshulkks/",
+  },
+  {
+    name: "Qian Shu (Helen) Wang",
+    role: "MPhil Student",
+    imageSrc: "/img/helen.jpg",
+    url: "https://www.linkedin.com/in/helen-wang-cambridge/",
+  },
+  {
+    name: "Afifah Kashif",
+    role: "MPhil Student",
+    imageSrc: "/img/afifah.JPG",
+    url: "https://www.linkedin.com/in/afifah-k/",
+  },
+  {
+    name: "Amirat Abdulsalam",
+    role: "MPhil Student",
+    imageSrc: "/img/amirat.jpg",
+    url: "https://www.mastercardfoundation.fund.cam.ac.uk/staff/amirat-abdulsalam",
+  },
+  {
+    name: "Qingfeng Huang",
+    role: "MPhil Student",
+    imageSrc: "/img/qingfeng.jpg",
+    url: "https://www.linkedin.com/in/qingfeng-huang/",
+  },
+  {
+    name: "Sydney Nguyen",
+    role: "MPhil Student",
+    imageSrc: "/img/sydney.jpg",
+    url: "https://www.linkedin.com/in/sydney-nguyen-7329441b1/",
   },
 ];
 
