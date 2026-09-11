@@ -184,19 +184,19 @@ const previousMembers: Person[] = [
 const previousStudents: Person[] = [
   {
     name: "Qian Shu (Helen) Wang",
-    role: "PhD Candidate at the Hong Kong University of Science and Technology",
+    role: "Currently: PhD Candidate at the Hong Kong University of Science and Technology",
     imageSrc: "/img/helen.jpg",
     url: "https://www.linkedin.com/in/helen-wang-cambridge/",
   },
   {
     name: "Afifah Kashif",
-    role: "Visiting Researcher at Stanford University",
+    role: "Currently: Visiting Researcher at Stanford University",
     imageSrc: "/img/afifah.JPG",
     url: "https://www.linkedin.com/in/afifah-k/",
   },
   {
     name: "Amirat Abdulsalam",
-    role: "Research Fellow at the Global Center on AI Governance, and Research Assistant at the Digital Education Futures Initiative.",
+    role: "Currently: Research Fellow at the Global Center on AI Governance, and Research Assistant at the Digital Education Futures Initiative.",
     imageSrc: "/img/amirat.jpg",
     url: "https://www.mastercardfoundation.fund.cam.ac.uk/staff/amirat-abdulsalam",
   },
@@ -379,8 +379,14 @@ export function TeamSection() {
           </div>
 
           <div className="text-xs md:text-sm font-normal text-gray-700">
-          <strong>Currently: </strong>
-            {person.role}
+            {person.role.startsWith("Currently:") ? (
+              <>
+                <strong>Currently:</strong>
+                {person.role.slice("Currently:".length)}
+              </>
+            ) : (
+              person.role
+            )}
           </div>
         </div>
       </div>
