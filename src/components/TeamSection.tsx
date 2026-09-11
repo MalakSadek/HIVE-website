@@ -96,12 +96,6 @@ const collaborators: Person[] = [
     url: "https://www.linkedin.com/in/smit-desai-6b54bb83/",
   },
   {
-    name: "Dr. Emma Kallina",
-    role: "Postdoctoral Researcher, Research Center for Trustworthy Data Science and Security",
-    imageSrc: "/img/emma.jpg",
-    url: "https://www.linkedin.com/in/emma-kallina/?originalSubdomain=uk",
-  },
-  {
     name: "Dr. Minja Axelsson",
     role: "Assistant Professor, Heriot-Watt University",
     imageSrc: "/img/minja.jpg",
@@ -115,7 +109,46 @@ const collaborators: Person[] = [
   },
 ];
 
-const pastMembersAndCollaborators: Person[] = [
+const guestSpeakers: Person[] = [
+  {
+    name: "Adam Jaamour",
+    role: "Lead AI Engineer at CausaLens",
+    imageSrc: "/img/adam.jpg",
+    url: "https://www.linkedin.com/in/adamjaamour/",
+  },
+  {
+    name: "Babs Khalidson",
+    role: "ML Engineer at Amazon AWS",
+    imageSrc: "/img/babs.jpg",
+    url: "https://www.linkedin.com/in/babskhalidson/",
+  },
+  {
+    name: "Callum Macpherson",
+    role: "Senior AI Engineer at Strava",
+    imageSrc: "/img/callum.jpg",
+    url: "https://www.linkedin.com/in/callumjmac/",
+  },
+  {
+    name: "Diana Canghizer",
+    role: "Doctoral Researcher at Imperial College London",
+    imageSrc: "/img/diana.jpg",
+    url: "https://www.linkedin.com/in/dianacanghizer/",
+  },
+  {
+    name: "Dr. Shyam Krishna",
+    role: "Research Lead at RAND Europe and UNESCO",
+    imageSrc: "/img/shyam.jpg",
+    url: "https://www.linkedin.com/in/shyamkrishna/",
+  },
+  {
+    name: "Hind Arekat",
+    role: "Design Consultant at IBM",
+    imageSrc: "/img/hind.jpg",
+    url: "https://www.linkedin.com/in/hind-arekat-7615941b7/",
+  },
+];
+
+const previousMembers: Person[] = [
   {
     name: "Dr. Uta Hinrichs",
     role: "Associate Professor in Data Visualisation, Institute of Language, Cognition and Computation, University of Edinburgh",
@@ -129,6 +162,12 @@ const pastMembersAndCollaborators: Person[] = [
     url: "https://www.st-andrews.ac.uk/computer-science/people/lec24/",
   },
   {
+    name: "Dr. Emma Kallina",
+    role: "Postdoctoral Researcher, Research Center for Trustworthy Data Science and Security",
+    imageSrc: "/img/emma.jpg",
+    url: "https://www.linkedin.com/in/emma-kallina/?originalSubdomain=uk",
+  },
+  {
     name: "Ziwen Zhu",
     role: "Visiting Researcher (Northumbria University)",
     imageSrc: "/img/ziwen-zhu.jpg",
@@ -140,21 +179,24 @@ const pastMembersAndCollaborators: Person[] = [
     imageSrc: "/img/anshul.jpg",
     url: "https://www.linkedin.com/in/anshulkks/",
   },
+];
+
+const previousStudents: Person[] = [
   {
     name: "Qian Shu (Helen) Wang",
-    role: "MPhil Student",
+    role: "PhD Candidate at the Hong Kong University of Science and Technology",
     imageSrc: "/img/helen.jpg",
     url: "https://www.linkedin.com/in/helen-wang-cambridge/",
   },
   {
     name: "Afifah Kashif",
-    role: "MPhil Student",
+    role: "Visiting Researcher at Stanford University",
     imageSrc: "/img/afifah.JPG",
     url: "https://www.linkedin.com/in/afifah-k/",
   },
   {
     name: "Amirat Abdulsalam",
-    role: "MPhil Student",
+    role: "Research Fellow at the Global Center on AI Governance, and Research Assistant at the Digital Education Futures Initiative.",
     imageSrc: "/img/amirat.jpg",
     url: "https://www.mastercardfoundation.fund.cam.ac.uk/staff/amirat-abdulsalam",
   },
@@ -232,8 +274,25 @@ export function TeamSection() {
   const lastCollaboratorIndex = collaborators.length - 1;
   const collaboratorsRemainder = collaborators.length % mdColumns;
 
-  const lastPastMemberIndex = pastMembersAndCollaborators.length - 1;
-  const pastMembersRemainder = pastMembersAndCollaborators.length % mdColumns;
+  const lastGuestSpeakerIndex = guestSpeakers.length - 1;
+  const guestSpeakersRemainder = guestSpeakers.length % mdColumns;
+  const lastPreviousMemberIndex = previousMembers.length - 1;
+  const previousMembersRemainder = previousMembers.length % mdColumns;
+  const lastPreviousStudentIndex = previousStudents.length - 1;
+  const previousStudentsRemainder = previousStudents.length % mdColumns;
+
+  const mdPlacementClass = (
+    remainder: number,
+    index: number,
+    lastIndex: number
+  ) =>
+    remainder === 1 && index === lastIndex
+      ? "md:col-start-3"
+      : remainder === 2 && index === lastIndex - 1
+        ? "md:col-start-2"
+        : remainder === 2 && index === lastIndex
+          ? "md:col-start-4"
+          : undefined;
 
   const renderPerson = (
     person: Person,
@@ -320,6 +379,7 @@ export function TeamSection() {
           </div>
 
           <div className="text-xs md:text-sm font-normal text-gray-700">
+          <strong>Currently: </strong>
             {person.role}
           </div>
         </div>
@@ -340,13 +400,7 @@ export function TeamSection() {
               renderPerson(
                 (person ?? { name: "", role: "" }),
                 index,
-                teamRemainder === 1 && index === lastTeamIndex
-                  ? "md:col-start-3"
-                  : teamRemainder === 2 && index === lastTeamIndex - 1
-                    ? "md:col-start-2"
-                    : teamRemainder === 2 && index === lastTeamIndex
-                      ? "md:col-start-4"
-                      : undefined
+                mdPlacementClass(teamRemainder, index, lastTeamIndex)
             )
           )}
         </div>
@@ -362,13 +416,11 @@ export function TeamSection() {
             renderPerson(
               (person ?? { name: "", role: "" }),
               index,
-              collaboratorsRemainder === 1 && index === lastCollaboratorIndex
-                ? "md:col-start-3"
-                : collaboratorsRemainder === 2 && index === lastCollaboratorIndex - 1
-                  ? "md:col-start-2"
-                  : collaboratorsRemainder === 2 && index === lastCollaboratorIndex
-                    ? "md:col-start-4"
-                    : undefined
+              mdPlacementClass(
+                collaboratorsRemainder,
+                index,
+                lastCollaboratorIndex
+              )
             )
           )}
         </div>
@@ -434,28 +486,88 @@ export function TeamSection() {
           </div>
         </div>
 
-        <PastMembersToggle>
-          <div
-            id="past-members-and-collaborators"
-            className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-6 mb-0"
-          >
-            {(
-              pastMembersAndCollaborators.length
-                ? pastMembersAndCollaborators
+        <PastMembersToggle
+          title="Past Members, Guest Speakers & Collaborators"
+          controlsId="past-members-and-collaborators"
+          className="mt-16"
+          buttonClassName="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight"
+        >
+          <div id="past-members-and-collaborators">
+            <h4 className="mb-10 text-xl md:text-2xl lg:text-3xl font-normal tracking-tight text-hiveDark text-center">
+              Guest Speakers
+            </h4>
+
+            <div
+              id="guest-speakers"
+              className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-6 mb-0"
+            >
+              {(guestSpeakers.length
+                ? guestSpeakers
                 : new Array(3).fill(null)
-            ).map((person, index) =>
-              renderPerson(
-                (person ?? { name: "", role: "" }),
-                index,
-                pastMembersRemainder === 1 && index === lastPastMemberIndex
-                  ? "md:col-start-3"
-                  : pastMembersRemainder === 2 && index === lastPastMemberIndex - 1
-                    ? "md:col-start-2"
-                    : pastMembersRemainder === 2 && index === lastPastMemberIndex
-                      ? "md:col-start-4"
-                      : undefined
-              )
-            )}
+              ).map((person, index) =>
+                renderPerson(
+                  (person ?? { name: "", role: "" }),
+                  index,
+                  mdPlacementClass(
+                    guestSpeakersRemainder,
+                    index,
+                    lastGuestSpeakerIndex
+                  )
+                )
+              )}
+            </div>
+
+            <h4 className="mt-12 mb-10 text-xl md:text-2xl lg:text-3xl font-normal tracking-tight text-hiveDark text-center">
+              Previous Members
+            </h4>
+
+            <div
+              id="previous-members"
+              className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-6 mb-0"
+            >
+              {(previousMembers.length
+                ? previousMembers
+                : new Array(3).fill(null)
+              ).map((person, index) =>
+                renderPerson(
+                  (person ?? { name: "", role: "" }),
+                  index,
+                  mdPlacementClass(
+                    previousMembersRemainder,
+                    index,
+                    lastPreviousMemberIndex
+                  )
+                )
+              )}
+            </div>
+
+            <PastMembersToggle
+              title="Previous Students"
+              controlsId="previous-students"
+              headingLevel="h4"
+              className="mt-12"
+              buttonClassName="text-xl md:text-2xl lg:text-3xl font-normal tracking-tight"
+            >
+              <div
+                id="previous-students"
+                className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-6 mb-0"
+              >
+                {(previousStudents.length
+                  ? previousStudents
+                  : new Array(3).fill(null)
+                ).map((person, index) =>
+                  renderPerson(
+                    (person ?? { name: "", role: "" }),
+                    index,
+                    mdPlacementClass(
+                      previousStudentsRemainder,
+                      index,
+                      lastPreviousStudentIndex
+                    )
+                  )
+                )}
+              </div>
+            </PastMembersToggle>
           </div>
         </PastMembersToggle>
 
