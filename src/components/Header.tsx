@@ -7,8 +7,8 @@ const NAV_ITEMS = [
   { label: "Research", href: "#research" },
   { label: "Projects", href: "#projects" },
   { label: "Team", href: "#team" },
-  { label: "Principles", href: "#principles" },
   { label: "Activities", href: "#activities" },
+  { label: "Principles", href: "#principles" },
   { label: "Join the HIVE", href: "#join" },
 ];
 

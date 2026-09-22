@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import type { KeyboardEvent, MouseEvent, ReactNode } from "react";
+import { ActivitiesCarousel } from "./ActivitiesCarousel";
 import { Container } from "./Container";
 
 type Activity = {
@@ -14,6 +15,12 @@ type Activity = {
 const activities: Activity[] = [];
 
 const DEFAULT_ACTIVITIES: Activity[] = [
+  {
+    text: "**Dr. Malak Sadek** delivered a session on why companies should be focusing on human-inspired AI and how this can impact trust and adoption at [Ramsac](https://www.ramsac.com/)'s AI Summit, hosted at [Dawn Capital](https://www.dawncapital.com/).",
+    href: "https://www.linkedin.com/feed/foryou/?highlightedUpdateUrn=urn%3Ali%3Aactivity%3A7506031108455587840",
+    monthYear: "Sept 2026",
+    tag: "Outreach",
+  },
   {
     text: "**Dr. Malak Sadek** contributed a chapter titled 'Social Presence and AI-Mediated Communication' to the Palgrave Encyclopedia of Cyberpsychology.",
     href: "https://link.springer.com/rwe/10.1007/978-3-031-52643-5_282-1#citeas",
@@ -148,7 +155,11 @@ function isNestedAnchorClick(target: EventTarget | null) {
   return target instanceof Element && target.closest("a") !== null;
 }
 
-export function ActivitiesSection() {
+type ActivitiesSectionProps = {
+  carouselImages: string[];
+};
+
+export function ActivitiesSection({ carouselImages }: ActivitiesSectionProps) {
   const items = activities.length ? activities : DEFAULT_ACTIVITIES;
 
   return (
@@ -157,6 +168,8 @@ export function ActivitiesSection() {
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-hiveDark mb-10 text-center">
           Latest Activities
         </h2>
+
+        <ActivitiesCarousel images={carouselImages} />
 
         <div className="w-full max-h-[33rem] overflow-y-auto pr-4 [scrollbar-gutter:stable]">
           <div className="space-y-8 w-full">
