@@ -52,7 +52,7 @@ const teamMembers: Person[] = [
   },
   {
     name: "Isabelle Kohout",
-    role: "Research Assistant",
+    role: "Affiliated Fellow",
     imageSrc: "/img/isabelle.png",
     url: "https://www.linkedin.com/in/isabellekohout/",
   },
