@@ -173,12 +173,6 @@ const previousMembers: Person[] = [
     imageSrc: "/img/ziwen-zhu.jpg",
     url: "https://www.ziwendesign.com/",
   },
-  {
-    name: "Anshul Sinha",
-    role: "Research Assistant",
-    imageSrc: "/img/anshul.jpg",
-    url: "https://www.linkedin.com/in/anshulkks/",
-  },
 ];
 
 const previousStudents: Person[] = [
@@ -199,6 +193,12 @@ const previousStudents: Person[] = [
     role: "Currently: Research Fellow at the Global Center on AI Governance, and Research Assistant at the Digital Education Futures Initiative.",
     imageSrc: "/img/amirat.jpg",
     url: "https://www.mastercardfoundation.fund.cam.ac.uk/staff/amirat-abdulsalam",
+  },
+  {
+    name: "Anshul Sinha",
+    role: "Currently: Analyst, Macro & Quantitative Strategy at Goldman Sachs",
+    imageSrc: "/img/anshul.jpg",
+    url: "https://www.linkedin.com/in/anshulkks/",
   },
   {
     name: "Qingfeng Huang",
@@ -524,7 +524,7 @@ export function TeamSection() {
             </div>
 
             <h4 className="mt-12 mb-10 text-xl md:text-2xl lg:text-3xl font-normal tracking-tight text-hiveDark text-center">
-              Previous Members
+              Previous Collaborators & Members
             </h4>
 
             <div
